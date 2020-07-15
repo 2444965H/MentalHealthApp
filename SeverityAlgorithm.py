@@ -1,16 +1,17 @@
 from Parser import DepressionIR, AnxietyIR, StressIR
+from IRProcessor import DepressionValue, AnxietyValue, StressValue
 
 
 def Depression():
-    sumOfDepression = sum(DepressionIR.DepressionArray)
+    sumOfDepression = sum(DepressionValue.DepressionArray)
     print('Degree and Value of Depression is ',sumOfDepression)
 
 def Anxiety():
-    sumOfAnxiety = sum(AnxietyIR.AnxietyArray)
+    sumOfAnxiety = sum(AnxietyValue.AnxietyArray)
     print('Degree and Value of Anxiety is ',sumOfAnxiety)
 
 def Stress():
-    sumOfStress = sum(Stress().StressArray)
+    sumOfStress = sum(StressValue.StressArray)
     print('Degree and Value of Stress is ',sumOfStress)
 
 Depression()
