@@ -16,15 +16,12 @@ class DepressionIR:
         #print(ws.cell(row=x, column=2).value)
     #print(len(DepressionArray))
 
-
 class AnxietyIR:
     AnxietyArray = []
     for x in range(18,25):
         AnxietyArray.append(ws.cell(row=x, column=2).value)
         #print(ws.cell(row=x, column=2).value)
     #print(len(AnxietyArray))
-
-
 
 class StressIR:
     StressArray = []
