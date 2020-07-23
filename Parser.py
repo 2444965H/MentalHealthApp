@@ -1,3 +1,8 @@
+#This file loads the input and then parses it into a class for the internal representation (IR)
+#The classes are divided into subsections, each with its own IR array.
+#Print statements (that are hashed out) can be unhashed in order to check for correct array (output)
+#The classes' IR arrays are then processed in the next step in the IRProcessor.py
+
 from numpy.random.tests import data
 from openpyxl import load_workbook
 import numpy as np
@@ -5,7 +10,7 @@ import numpy as np
 #workbook = openpyxl.open_workbook('file.xlsx')
 #worksheet = workbook.sheet_by_index(0)
 #print(worksheet.cell(0, 0).value)
-wb = load_workbook(filename ='Input.xlsx')
+wb = load_workbook(filename ='Input2.xlsm')
 ws = wb['Day 1']
 #Tab namens "test" - Klein/Großschreibung achten!
 
