@@ -3,9 +3,8 @@
 #Print statements (that are hashed out) can be unhashed in order to check for correct array (output)
 #The classes' IR arrays are then processed in the next step in the IRProcessor.py
 
-from numpy.random.tests import data
 from openpyxl import load_workbook
-import numpy as np
+
 #import openpyxl
 #workbook = openpyxl.open_workbook('file.xlsx')
 #worksheet = workbook.sheet_by_index(0)

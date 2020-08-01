@@ -1,28 +1,34 @@
-import SeverityAlgorithm
-from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, NumericalStressArray
-import RecommendationAlgorithm
-import os
-
-
+#import SeverityAlgorithm
+#from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, NumericalStressArray
+#import RecommendationAlgorithm
+#import os
 
 #class ContextualCheck:
 #    IndividualDepression = sum(NumericalDepressionArray.DepressionArray)
 #    IndividualAnxiety = sum(NumericalAnxietyArray.AnxietyArray)
 #    IndividualStress = sum(NumericalStressArray.StressArray)
 
-def ContextualCheck():
-    ContextArray = []
-    if (sum(NumericalDepressionArray.DepressionArray) >=5) or (sum(NumericalAnxietyArray.AnxietyArray) >=5) or (sum(NumericalStressArray.StressArray) >=5):
-        print("It seems that you have at least one thing on your mind. Do you want to select what contributes to your current mood? ")
-        input = "yn"
-        if os.system("choice /c:%s /n /m \"Yes or No (Y/N)\"" % input) - 2:
-        # if pressed Y
-            print("Yes")
-            print("OK, great! Select at least 1 factor that contributes to your mood")
-        input2 = "wf"
-        if os.system("choice")
-        else:
-        # if pressed N
-            print("No")
+from random import choice
+from experta import *
+
+
+class Light(Fact):
+    """Info about the traffic light."""
+    pass
+
+
+class RobotCrossStreet(KnowledgeEngine):
+    @Rule(Light(color='green'))
+    def green_light(self):
+        print("Walk")
+
+    @Rule(Light(color='red'))
+    def red_light(self):
+        print("Don't walk")
+
+    @Rule(AS.light << Light(color=L('yellow') | L('blinking-yellow')))
+    def cautious(self, light):
+        print("Be cautious because light is", light["color"])
+
 
 
