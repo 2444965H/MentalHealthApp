@@ -12,19 +12,22 @@ class ContextualQuestions(KnowledgeEngine):
         if (SeverityAlgorithm.Depression() >= 5) or (SeverityAlgorithm.Anxiety() >= 5) or (
                 SeverityAlgorithm.Stress() >= 5):
             yield Fact(action="DefineFinancialSituation")
-            teststring = TestGUIGooey.guiMakerFinance()
-            print(teststring)
+            AnswerArray = []
+            AnswerArray = TestGUIGooey.guiMakerFinance()
+            for x in range(0, 2):
+                print(AnswerArray[x])
+
 
     @Rule(Fact(action='DefineFinancialSituation'),
           NOT(Fact(financialdistress=W())))
-    def ask_financialdistress(self, financialdistress=None):
+    def ask_financialdistress(self):
         #financialdistress=TestGUIGooey.guiMakerFinance()
-        financialdistress= self.declare(Fact(financialdistress=input))
+        self.declare(Fact(financialdistress=input))
         #pass financialdistress
 
     @Rule(Fact(action='DefineFinancialSituation'),
           NOT(Fact(employment=W())))
-    def ask_employment(self, employment=None):
+    def ask_employment(self):
         #employment=TestGUIGooey.guiMakerFinance()
         self.declare(Fact(employment=input))
         # self.declare(Fact(employment=input("What kind of employment do you have? Type in: Full-Time or Part-Time")))
