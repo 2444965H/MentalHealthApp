@@ -1,0 +1,3 @@
+import MentalProfile
+
+MentalProfile.Profile()
