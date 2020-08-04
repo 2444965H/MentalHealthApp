@@ -9,6 +9,7 @@ verify_ssl = true
 experta = "*"
 openpyxl = "*"
 gooey = "*"
+observable = "*"
 
 [requires]
 python_version = "3.8"
