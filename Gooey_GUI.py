@@ -17,7 +17,7 @@ def contextualQuestionsGUI():
 #Financial Questions
     allFinancialQuestions = parser.add_argument_group('Financial') #Groups the Questions in a tab
     financialQuestionFinancialDistress = allFinancialQuestions.add_argument(
-        "financialdistress",
+        "financialdistress", #equal to AnswerArray[0]
         metavar='Are you in financial distress?',
         choices=["yes, I am in financial distress",
                  "no, I am not in financial distress"]
@@ -25,7 +25,7 @@ def contextualQuestionsGUI():
     )
 
     financialQuestionEmployment = allFinancialQuestions.add_argument(
-        "employment",
+        "employment", #equal to AnswerArray[1]
         metavar='What is your employment situation?',
         choices=['Full-Time',
                  'Part-Time',
@@ -37,62 +37,62 @@ def contextualQuestionsGUI():
 #Family Questions
     allFamilyQuestions = parser.add_argument_group('Family')
     familyQuestionCaretaker = allFamilyQuestions.add_argument(
-        "isCaretaker",
+        "isCaretaker", #equal to AnswerArray[2]
         metavar='Are you taking care of any family members (e.g. children, elderly)?',
-        choices=['Yes, I am a caretaker',
-                 'No, I am not a caretaker'],
+        choices=['Yes, I am a caregiver',
+                 'No, I am not a caregiver'],
     )
 
     familyQuestionEnoughSupport = allFamilyQuestions.add_argument(
-        "getsEnoughSupport",
-        metavar='Do you have enough support for the caretaking tasks?',
-        choices=['Yes, I have enough support for caretaking',
-                 'No, I have not enough support for caretaking']
+        "getsEnoughSupport", #equal to AnswerArray[3]
+        metavar='Do you have/get enough support as a caregiver? E.g. from partner, social workers',
+        choices=['Yes, I have enough support',
+                 'No, I have not enough support']
         )
 
-    # familyQuestionCaringForAdults = allFamilyQuestions.add_argument(
-    #     "caringForAdults",
-    #     metavar='Are you taking care of an adult?',
-    #     choices=['yes, I am a caretaker for an adult',
-    #              'No, I am not a caretaker for an adult']
-    # )
-    #
-    # familyQuestionCaringForChildrenU18 = allFamilyQuestions.add_argument(
-    #     "caringForChildren",
-    #     metavar = 'Are you taking care of children under 18?',
-    #     choices = ['yes, I am a caretaker for children under 18',
-    #                'No, I am not a caretaker for children under 18']
-    # )
-    #
-    # familyQuestionCaringForDisabledChildren = allFamilyQuestions.add_argument(
-    #     "caringForDisabledChildren",
-    #     metavar= 'Are you taking care of a disabled child?',
-    #     choices = ['yes, I am a caretaker of a disabled child',
-    #                'no, I am not a caretaker of a disabled child']
-    # )
+    familyQuestionCaringForAdults = allFamilyQuestions.add_argument(
+        "caringForAdults", #equal to AnswerArray[4]
+        metavar='Are you a caregiver for an adult?',
+        choices=['yes, I am a caregiver for an adult',
+                 'No, I am not a caregiver for an adult']
+    )
+
+    familyQuestionCaringForChildrenU18 = allFamilyQuestions.add_argument(
+        "caringForU18Children", #equal to AnswerArray[5]
+        metavar = 'Are you a caregiver for any children under 18?',
+        choices = ['yes, I am a caregiver for at least one child under 18',
+                   'No, I am not a caregiver for child/children under 18']
+    )
+
+    familyQuestionCaringForDisabledChildren = allFamilyQuestions.add_argument(
+        "caringForDisabledChildren", #equal to AnswerArray[6]
+        metavar= 'Are you a caregiver for a disabled child?',
+        choices = ['yes, I am a caregiver for at least one disabled child',
+                   'no, I am not a caregiver for at least one disabled child']
+    )
 
 #Leisure Questions
-    # allLeisureQuestions = parser.add_argument_group('Leisure')
-    # leisureQuestionEnoughTimeForOneself = allLeisureQuestions.add_argument(
-    #     "enoughTimeForOneself",
-    #     metavar= 'Did you spent enough leisure time on yourself?',
-    #     choices= ['yes, I had enough leisure time for myself',
-    #               'no, I did not have enough leisure time for myself']
-    # )
+    allLeisureQuestions = parser.add_argument_group('Leisure')
+    leisureQuestionEnoughTimeForOneself = allLeisureQuestions.add_argument(
+        "enoughTimeForOneself",
+        metavar= 'Did you spent enough leisure time on yourself?',
+        choices= ['yes, I had enough leisure time for myself',
+                  'no, I did not have enough leisure time for myself']
+    )
 
-    # leisureQuestionOffTimePlanned = allLeisureQuestions.add_argument(
-    #     "leisureTimePlanned",
-    #     metavar='Did you plan to take off some time for leisure?',
-    #     choices=['yes, I planned/am planning to take off time for leisure',
-    #              'no, I did/am not planning to take off time for leisure']
-    # )
+    leisureQuestionOffTimePlanned = allLeisureQuestions.add_argument(
+        "leisureTimePlanned",
+        metavar='Did you plan to take off some time for leisure?',
+        choices=['yes, I planned/am planning to take off time for leisure',
+                 'no, I did/am not planning to take off time for leisure']
+    )
 
-    # leisureQuestionLeisureTimePlannedExecuted = allLeisureQuestions.add_argument(
-    #     "leisureTimePlannedExecuted",
-    #     metavar= 'Were you able to execute your leisure/hobbies like you planned?',
-    #     choices= ['yes, I had leisure time like planned',
-    #               'no, I was not able to take leisure time like planned']
-    # )
+    leisureQuestionLeisureTimePlannedExecuted = allLeisureQuestions.add_argument(
+        "leisureTimePlannedExecuted",
+        metavar= 'Were you able to execute your leisure/hobbies like you planned?',
+        choices= ['yes, I had leisure time like planned',
+                  'no, I was not able to take leisure time like planned']
+    )
 
 #Social Questions
     # allSocialQuestions = parser.add_argument_group('Social')
@@ -106,8 +106,8 @@ def contextualQuestionsGUI():
     # socialQuestionMissedOutDueExternalFactors = parser.add_argument(
     #     "missedOutDueExternalFactors",
     #     metavar = 'Did you miss out on social activities due to other responsibilities or ext. factors?',
-    #     choices = ["yes,  I did miss social activities due ext factors",
-    #                "no, I did not miss any social activities due to ext factors"]
+    #     choices = ["yes,  I did miss social activities due to external factors",
+    #                "no, I did not miss any social activities due to external factors"]
     # )
     #
     # socialQuestionAlternativeMeeting = parser.add_argument(
@@ -154,18 +154,19 @@ def contextualQuestionsGUI():
 
 #List of parsed GUI answers
     #Disable the Array AND the Question, if you want it disabled in the GUI
-    if parser.parse_args().financialdistress == "yes, I am in financial distress":
-        print("Yay")
     AnswerArray.append(parser.parse_args().financialdistress)
     AnswerArray.append(parser.parse_args().employment)
+
     AnswerArray.append(parser.parse_args().isCaretaker)
-    # AnswerArray.append(parser.parse_args().getsEnoughSupport)
-    # AnswerArray.append(parser.parse_args().caringForAdults)
-    # AnswerArray.append(parser.parse_args().caringForChildren)
-    # AnswerArray.append(parser.parse_args().caringForDisabledChildren)
-    # AnswerArray.append(parser.parse_args().enoughTimeForOneself)
-    # AnswerArray.append(parser.parse_args().leisureTimePlanned)
-    # AnswerArray.append(parser.parse_args().leisureTimePlannedExecuted)
+    AnswerArray.append(parser.parse_args().getsEnoughSupport)
+    AnswerArray.append(parser.parse_args().caringForAdults)
+    AnswerArray.append(parser.parse_args().caringForU18Children)
+    AnswerArray.append(parser.parse_args().caringForDisabledChildren)
+
+    AnswerArray.append(parser.parse_args().enoughTimeForOneself)
+    AnswerArray.append(parser.parse_args().leisureTimePlanned)
+    AnswerArray.append(parser.parse_args().leisureTimePlannedExecuted)
+
     # AnswerArray.append(parser.parse_args().anySocialActivities)
     # AnswerArray.append(parser.parse_args().missedOutDueExternalFactors)
     # AnswerArray.append(parser.parse_args().alternativeMeeting)
