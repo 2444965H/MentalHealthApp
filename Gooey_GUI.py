@@ -152,6 +152,9 @@ def contextualQuestionsGUI():
     #              'no, I cannot resolve this matter sensibly']
     # )
 
+# DAS Level
+
+
 #List of parsed GUI answers
     #Disable the Array AND the Question, if you want it disabled in the GUI
     AnswerArray.append(parser.parse_args().financialdistress)
@@ -180,16 +183,3 @@ def contextualQuestionsGUI():
     # print("Response:", args) #Redo uncomment this to check what input it takes in GUI
     return AnswerArray
 
-
-
-
-#    parser.add_argument('filename', help="name of the file to process", widget='FileChooser')
-#    parser.add_argument("-n", "--nolinenum", action='store_true', help="do not generate line numbers")
-#    parser.add_argument("-c", "--comments", action='store_true', help="generate commants")
-
-# group1 = parser.add_mutually_exclusive_group()
-# group2 = parser.add_mutually_exclusive_group()
-# financialdistress = group1.add_argument("-financiallyDistressed", metavar="--yes, I'm in financial distress", action="store_true")
-# financialdistress = group1.add_argument("-notfinanciallyDistressed", metavar="--no, I'm not in financial distress", action="store_true")
-# employment = group2.add_argument("-Full-Time", metavar="--I'm working Full-Time",  action="store_true")
-# employment = group2.add_argument("-Part-Time", metavar="--I'm working Part-Time", action="store_true")
