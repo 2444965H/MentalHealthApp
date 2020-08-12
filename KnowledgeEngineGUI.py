@@ -106,7 +106,7 @@ def contextualQuestionsGUI():
     # socialQuestionMissedOutDueExternalFactors = parser.add_argument(
     #     "missedOutDueExternalFactors",
     #     metavar = 'Did you miss out on social activities due to other responsibilities or ext. factors?',
-    #     choices = ["yes,  I did miss social activities due to external factors",
+    #     choices = ["yes, I did miss social activities due to external factors",
     #                "no, I did not miss any social activities due to external factors"]
     # )
     #

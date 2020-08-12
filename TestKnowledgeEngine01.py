@@ -3,9 +3,9 @@ import argparse
 from argparse import ArgumentParser
 from experta import *
 from gooey import Gooey, GooeyParser
-import Gooey_GUI
+import KnowledgeEngineGUI
 import SeverityAlgorithm
-from Gooey_GUI import contextualQuestionsGUI
+from KnowledgeEngineGUI import contextualQuestionsGUI
 
 class FinancialQuestions(Fact):
     """Info about the FinancialDistressLevel."""
@@ -33,7 +33,7 @@ class ContextualQuestions(KnowledgeEngine):
                 SeverityAlgorithm.Stress() >= 5):
             yield Fact(action='DefineFinancialSituation')
             AnswerArray = [] #Maybe substitue Array with ArrayList?
-            AnswerArray = Gooey_GUI.contextualQuestionsGUI()
+            AnswerArray = KnowledgeEngineGUI.contextualQuestionsGUI()
             print("Selected answers:")
             for x in range(0, 3): #NumberOfAnswersReturnedByGUI
                 print("- " + AnswerArray[x])

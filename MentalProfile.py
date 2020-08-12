@@ -11,12 +11,12 @@ from IRProcessor import NumericalDepressionArray
 
 class Profile:
     #IndividualContextualSituation = ContextualQuestionAlgorithm.ContextualCheck()
-    IndividualDepressionLevel = SeverityAlgorithm.Depression()
-    IndividualAnxietyLevel = SeverityAlgorithm.Anxiety()
-    IndividualStressLevel = SeverityAlgorithm.Stress()
+    individualDepressionLevel = SeverityAlgorithm.Depression()
+    individualAnxietyLevel = SeverityAlgorithm.Anxiety()
+    individualStressLevel = SeverityAlgorithm.Stress()
 
     IndividualDASArray = []
-    IndividualDASArray = IndividualDepressionLevel, IndividualAnxietyLevel, IndividualStressLevel
+    IndividualDASArray = individualDepressionLevel, individualAnxietyLevel, individualStressLevel
 
     def triggerRecommendations(self):
         if (SeverityAlgorithm.sumOfDepression >=5) or (SeverityAlgorithm.sumOfAnxiety >=5) or (SeverityAlgorithm.sumOfStress >=5):
@@ -32,6 +32,6 @@ class Profile:
         if SeverityAlgorithm.Depression() >14:
             print(Recommendations.financial_advice_3)
 
-# testInstance = Profile()
-# print(Profile.IndividualDASArray)
+testInstance = Profile()
+print(Profile.IndividualDASArray)
 # Profile().financial_advice()
