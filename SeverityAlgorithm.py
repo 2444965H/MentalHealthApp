@@ -62,3 +62,9 @@ def Stress():
     else:
         print('Something went wrong')
 
+print("Depression Value: ")
+print(sum(NumericalDepressionArray.DepressionArray))
+print("Anxiety Value: ")
+print(sum(NumericalAnxietyArray.AnxietyArray))
+print("Stress Value: ")
+print(sum(NumericalStressArray.StressArray))

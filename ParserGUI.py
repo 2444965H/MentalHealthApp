@@ -6,8 +6,8 @@ from gooey import GooeyParser
        tabbed_groups=True,
        navigation='Tabbed',
        fullscreen=True)
-def contextualQuestionsGUI():
-    parser = GooeyParser(description="Please go through the 4 tabs and answer the questions")
+def PHQ_QuestionsGUI():
+    parser = GooeyParser(description="Please go through the 3 tabs and answer the questions")
     AnswerArray = []
 
 #PHQ9 Questions for Depression - Part of PHQ-D
@@ -78,22 +78,14 @@ def contextualQuestionsGUI():
 
     speakingSlowORFast = allPHQ9Questions.add_argument(
         "speakingSlowORFast", #equal to AnswerArray[7]
-        metavar='Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual',
+        metavar='Moving/Speaking so slowly OR being restless that others have noticed?',
+        #'Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
                  "Nearly every day"]
     )
-    allGAD7Questions = parser.add_argument_group('GAD-7 for Anxiety')
 
-    feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous", #equal to AnswerArray[0]
-        metavar='Feeling nervous, anxious or on edge?',
-        choices=["Not at all",
-                 "Several days",
-                 "More than half the days",
-                 "Nearly every day"]
-    )
 
     hurtingOneself = allPHQ9Questions.add_argument(
         "hurtingOneself", #equal to AnswerArray[8]
@@ -105,6 +97,16 @@ def contextualQuestionsGUI():
     )
 
 #GAD-7 (Modul of PHQ-D)
+    allGAD7Questions = parser.add_argument_group('GAD-7 for Anxiety')
+
+    feelingNervous = allGAD7Questions.add_argument(
+        "feelingNervous", #equal to AnswerArray[0]
+        metavar='Feeling nervous, anxious or on edge?',
+        choices=["Not at all",
+                 "Several days",
+                 "More than half the days",
+                 "Nearly every day"]
+    )
 
     worrying = allGAD7Questions.add_argument(
         "worrying", #equal to AnswerArray[1]
@@ -115,45 +117,45 @@ def contextualQuestionsGUI():
                  "Nearly every day"]
     )
 
-    feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous",
-        metavar='Feeling nervous, anxious or on edge?',
+    worryingTooMuch = allGAD7Questions.add_argument(
+        "worryingTooMuch",
+        metavar='Worrying too much about different things?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
                  "Nearly every day"]
     )
 
-    feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous",
-        metavar='Feeling nervous, anxious or on edge?',
+    troubleRelaxing = allGAD7Questions.add_argument(
+        "troubleRelaxing",
+        metavar='Trouble relaxing?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
                  "Nearly every day"]
     )
 
-    feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous",
-        metavar='Feeling nervous, anxious or on edge?',
+    restless = allGAD7Questions.add_argument(
+        "restless",
+        metavar='Being so restless that it is hard to sit still?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
                  "Nearly every day"]
     )
 
-    feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous",
-        metavar='Feeling nervous, anxious or on edge?',
+    annoyedOrIrritable = allGAD7Questions.add_argument(
+        "annoyedOrIrritable",
+        metavar='Becoming easily annoyed or irritable?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
                  "Nearly every day"]
     )
 
-    feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous",
-        metavar='Feeling nervous, anxious or on edge?',
+    afraidAwfulHappening = allGAD7Questions.add_argument(
+        "afraidAwfulHappening",
+        metavar='Feeling afraid as if something awful might happen?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -238,8 +240,43 @@ def contextualQuestionsGUI():
 
     thoughtsOrDreamsAboutTerribleEvents= allPHQStressQuestions.add_argument(
         "thoughtsOrDreamsAboutTerribleEvents", #equal to AnswerArray[9]
-        metavar='Thoughts about terrible events from earlier or dreams about it - e.g. the destruction of your own home, a serious accident, a robbery, physical violence or a forced sexual act',
+        metavar='Thoughts about terrible events from earlier or dreams about it',
+                #' - e.g. the destruction of your own home, a serious accident, a robbery, physical violence or a forced sexual act',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
     )
+
+    #PHQ-9
+    AnswerArray.append(parser.parse_args().littleInterestInDoingThings)
+    AnswerArray.append(parser.parse_args().feelingDown)
+    AnswerArray.append(parser.parse_args().troubleSleeping)
+    AnswerArray.append(parser.parse_args().feelingTired)
+    AnswerArray.append(parser.parse_args().poorAppetite)
+    AnswerArray.append(parser.parse_args().feelingBadAboutYourself)
+    AnswerArray.append(parser.parse_args().badConcentration)
+    AnswerArray.append(parser.parse_args().speakingSlowORFast)
+    AnswerArray.append(parser.parse_args().hurtingOneself)
+
+    # GAD-7 (Modul of PHQ-D)
+    AnswerArray.append(parser.parse_args().feelingNervous)
+    AnswerArray.append(parser.parse_args().worrying)
+    AnswerArray.append(parser.parse_args().worryingTooMuch)
+    AnswerArray.append(parser.parse_args().troubleRelaxing)
+    AnswerArray.append(parser.parse_args().restless)
+    AnswerArray.append(parser.parse_args().annoyedOrIrritable)
+    AnswerArray.append(parser.parse_args().afraidAwfulHappening)
+
+    # PHQ Stress Modul (Modul of PHQ-D)
+    AnswerArray.append(parser.parse_args().worryAboutHealth)
+    AnswerArray.append(parser.parse_args().weightOrAppearance)
+    AnswerArray.append(parser.parse_args().sexualDesire)
+    AnswerArray.append(parser.parse_args().difficultiesWithSO)
+    AnswerArray.append(parser.parse_args().caregiverBurden)
+    AnswerArray.append(parser.parse_args().stressAtWorkSchool)
+    AnswerArray.append(parser.parse_args().financialProblems)
+    AnswerArray.append(parser.parse_args().noTalkPartner)
+    AnswerArray.append(parser.parse_args().sthBadHappened)
+    AnswerArray.append(parser.parse_args().thoughtsOrDreamsAboutTerribleEvents)
+
+    return AnswerArray

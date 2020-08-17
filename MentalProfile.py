@@ -17,11 +17,7 @@ class Profile:
     IndividualDASArray = []
     IndividualDASArray = individualDepressionLevel, individualAnxietyLevel, individualStressLevel
 
-    def triggerRecommendations(self):
-        if (SeverityAlgorithm.sumOfDepression >=5) or (SeverityAlgorithm.sumOfAnxiety >=5) or (SeverityAlgorithm.sumOfStress >=5):
-            print('hi')
 
-
-testInstance = Profile()
-print(Profile.IndividualDASArray)
+#testInstance = Profile()
+#print(Profile.IndividualDASArray)
 # Profile().financial_advice()

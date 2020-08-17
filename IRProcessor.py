@@ -19,7 +19,9 @@ class NumericalDepressionArray:
             DepressionArray[i] = 2
         if DepressionArray[i] == "Nearly every day":
             DepressionArray[i] = 3
- #       print(DepressionArray[i])
+        #print(DepressionArray[i])
+    print("Depression Array Values: ")
+    print(DepressionArray)
 
 class NumericalAnxietyArray:
     #Overwrite AnxietyArray from string to int values
@@ -35,7 +37,9 @@ class NumericalAnxietyArray:
             AnxietyArray[i] = 2
         if AnxietyArray[i] == "Nearly every day":
             AnxietyArray[i] = 3
-#        print(AnxietyArray[i])
+        #print(AnxietyArray[i])
+    print("Anxiety Array Values: ")
+    print(AnxietyArray)
 
 class NumericalStressArray:
     #Overwrite StressArray from string to int values
@@ -49,4 +53,6 @@ class NumericalStressArray:
             StressArray[i] = 1
         if StressArray[i] == "Severely affected":
             StressArray[i] = 2
-#        print(StressArray[i])
+        #print(StressArray[i])
+    print("Stress Array Values: ")
+    print(StressArray)

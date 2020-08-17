@@ -3,34 +3,91 @@
 #Print statements (that are hashed out) can be unhashed in order to check for correct array (output)
 #The classes' IR arrays are then processed in the next step in the IRProcessor.py
 
-from openpyxl import load_workbook
 
-#import openpyxl
-#workbook = openpyxl.open_workbook('file.xlsx')
-#worksheet = workbook.sheet_by_index(0)
-#print(worksheet.cell(0, 0).value)
-wb = load_workbook(filename ='Input2.xlsm')
-ws = wb['Day 1']
-#Tab namens "test" - Klein/Großschreibung achten!
+
+#New
+import ParserGUI
+
+QuestionArray = ["Little interest or pleasure in doing things?",
+                 'Feeling down, depressed, or hopeless?',
+                 'Trouble falling or staying asleep, or sleeping too much',
+                 'Feeling tired or having little energy','Poor apppetite or overeating',
+                 'Feeling bad about yourself - or that you are a failure or have let yourself or your family down',
+                 'Trouble concentrating on things, such as reading the newspaper or watching television',
+                 'Moving/Speaking so slowly OR being restless that others have noticed?',
+                 'Thoughts that you would be better off dead or of hurting yourself in some way',
+                 'Feeling nervous, anxious or on edge?',
+                 'Not being able to stop or control worrying?',
+                 'Worrying too much about different things?',
+                 'Trouble relaxing?',
+                 'Being so restless that it is hard to sit still?',
+                 'Becoming easily annoyed or irritable?',
+                 'Feeling afraid as if something awful might happen?',
+                 'Worry about your health','Your weight or your appearance',
+                 'Little or no sexual desire or pleasure during intercourse',
+                 'Difficulties with the spouse, significant other, girlfriend / boyfriend',
+                 'Burden of caring for children, parents, or other family members',
+                 'Stress at work or at school',
+                 'Financial problems or concerns',
+                 'Not having someone to talk to about problems',
+                 'Something bad that happened recently',
+                 'Thoughts about terrible events from earlier or dreams about it']
+
+AnswerArray = ParserGUI.PHQ_QuestionsGUI()
+print("Selected answers:")
+for x in range(0, 26):  # NumberOfAnswersReturnedByGUI #declareAnswerArry[x+1]
+        print("- " + QuestionArray[x] + "  " + AnswerArray[x])
 
 class DepressionIR:
     DepressionArray = []
-    for x in range(4,13):
-        DepressionArray.append(ws.cell(row=x, column=2).value)
-        #print(ws.cell(row=x, column=2).value)
-    #print(len(DepressionArray))
+    for x in range(0,9):
+        DepressionArray.append(AnswerArray[x])
+    #print("Value of Depression Array: ")
+    #print(DepressionArray)
+    #print(len(DepressionArray)) #will print how many values in the array are
 
 class AnxietyIR:
     AnxietyArray = []
-    for x in range(18,25):
-        AnxietyArray.append(ws.cell(row=x, column=2).value)
-        #print(ws.cell(row=x, column=2).value)
-    #print(len(AnxietyArray))
+    for x in range(9,16):
+        AnxietyArray.append(AnswerArray[x])
+    #print("Value of Anxiety Array: ")
+    #print(AnxietyArray)
 
 class StressIR:
     StressArray = []
-    for x in range(29,39):
-        StressArray.append(ws.cell(row=x, column=2).value)
-        #print(ws.cell(row=x, column=2).value)
-    #print(len(StressArray))
+    for x in range (16,26):
+        StressArray.append(AnswerArray[x])
+    #print("Value of Stress Array: ")
+    #print(StressArray)
 
+#OLD
+# from openpyxl import load_workbook
+#
+# #import openpyxl
+# #workbook = openpyxl.open_workbook('file.xlsx')
+# #worksheet = workbook.sheet_by_index(0)
+# #print(worksheet.cell(0, 0).value)
+# wb = load_workbook(filename ='Input2.xlsm')
+# ws = wb['Day 1']
+# #Tab namens "test" - Klein/Großschreibung achten!
+''
+# class DepressionIR:
+#     DepressionArray = []
+#     for x in range(4,13):
+#         DepressionArray.append(ws.cell(row=x, column=2).value)
+#         #print(ws.cell(row=x, column=2).value)
+#     #print(len(DepressionArray))
+#
+# class AnxietyIR:
+#     AnxietyArray = []
+#     for x in range(18,25):
+#         AnxietyArray.append(ws.cell(row=x, column=2).value)
+#         #print(ws.cell(row=x, column=2).value)
+#     #print(len(AnxietyArray))
+#
+# class StressIR:
+#     StressArray = []
+#     for x in range(29,39):
+#         StressArray.append(ws.cell(row=x, column=2).value)
+#         #print(ws.cell(row=x, column=2).value)
+#     #print(len(StressArray))
