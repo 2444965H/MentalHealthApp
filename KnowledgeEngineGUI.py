@@ -160,7 +160,6 @@ def contextualQuestionsGUI():
 #List of parsed GUI answers
     #Disable the AnswerArray.append below AND the Question above AND adjust AnswerArray length in KnowledgeEngineRun.py,
     #if you want it disabled in the GUI
-
     #Financial Questions
     AnswerArray.append(parser.parse_args().financialdistress)
     AnswerArray.append(parser.parse_args().employment)

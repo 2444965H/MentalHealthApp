@@ -13,6 +13,7 @@ import RecommendationsFinancial
 import RecommendationsLeisure
 import RecommendationsSocial
 
+
 class FinancialFact(Fact):
     """Info about the financial situation: Sub-attributes are "financialDistress" and "employment"."""
     pass

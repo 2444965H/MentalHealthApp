@@ -11,7 +11,6 @@ does not care which rule is being executed first
 import KnowledgeEngineGUI
 import KnowledgeEngine
 
-
 #AnswerArray = []
 AnswerArray = KnowledgeEngineGUI.contextualQuestionsGUI()
 print("Selected answers:")
@@ -48,3 +47,4 @@ engine.declare(KnowledgeEngine.SocialFact(futureStrategy=AnswerArray[16]))
 engine.declare(KnowledgeEngine.SocialFact(sensibleResolvePossible=AnswerArray[17]))
 
 engine.run()  # Executes & runs it
+
