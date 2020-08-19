@@ -7,7 +7,8 @@ from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, Numeric
 #Sum of values out of 9 questions - value range: 0-3
 def Depression(arg1):
     #NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1)
-    sumOfDepression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1))#sum(NumericalDepressionArray.DepressionArray)
+    sumOfDepression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1))
+                      #sum(NumericalDepressionArray.DepressionArray)
     print("Depression Value: ")
     print(sumOfDepression)
     #print('Degree and Value of Depression is ',sumOfDepression)
@@ -71,7 +72,3 @@ def Stress(arg3):
         return sumOfStress
     else:
         print('Something went wrong')
-
-
-
-
