@@ -2,14 +2,15 @@
 The classes below are called by SeverityAlgorithm.py to process/save the parsed GUI user input from a String array to an
 int array that can be summarized in SeverityAlgorithm.py to an int value that mirrors the respective DAS level in the
 MentalProfile.py
--> Original values from the Parser.py are not changed
+-> Original values are not changed
+
+For Debugging: QuestionArray can be uncommented in Parser.py to see the PHQ-Questions and respective answers
 """
 
 class NumericalDepressionArray:
     def calculateDepression(self,depressionValueIR):
-        #Overwrite DepressionArray from PHQContextParser.DepressionIR from string to int values
-        #print("Depression Array:") #ONLY for UNBUGGING: when array is printed pint(DepressionArray[i]), then uncomment this for title
-        DepressionArray = depressionValueIR #DepressionIR.DepressionArray #Duplication
+        #Overwrite DepressionArray from Parser.DepressionIR from string to int values
+        DepressionArray = depressionValueIR #DepressionIR.DepressionArray
         for i in range(len(DepressionArray)):
             if DepressionArray[i] == "Not at all":
                 DepressionArray[i] = 0
@@ -19,16 +20,14 @@ class NumericalDepressionArray:
                 DepressionArray[i] = 2
             if DepressionArray[i] == "Nearly every day":
                 DepressionArray[i] = 3
-            #print(DepressionArray[i])
         print("Depression Array Values: ")
         print(DepressionArray)
         return DepressionArray
 
 class NumericalAnxietyArray:
     def calculateAnxiety(self,anxietyValueIR):
-        #Overwrite AnxietyArray from from PHQContextParser.AnxietyIR from string to int values
-        #print("Anxiety Array:") #ONLY for UNBUGGING: when array is printed pint(AnxietyArray[i]), then uncomment this for title
-        AnxietyArray = anxietyValueIR #AnxietyIR.AnxietyArray #Duplication
+        #Overwrite AnxietyArray from Parser.AnxietyIR from string to int values
+        AnxietyArray = anxietyValueIR #AnxietyIR.AnxietyArray
         for i in range(len(AnxietyArray)):
             if AnxietyArray[i] == "Not at all":
                 AnxietyArray[i] = 0
@@ -38,17 +37,14 @@ class NumericalAnxietyArray:
                 AnxietyArray[i] = 2
             if AnxietyArray[i] == "Nearly every day":
                 AnxietyArray[i] = 3
-            #print(AnxietyArray[i])
         print("Anxiety Array Values: ")
         print(AnxietyArray)
         return AnxietyArray
 
 class NumericalStressArray:
-    def calculateStress(self,arg3):
-        #Overwrite StressArray from  string to int values
-        #print("Stress Array:") #ONLY for UNBUGGING: when array is printed pint(StressArray[i]), then uncomment this for title
-        StressArray = arg3
-        #Overwriting the Array of Stress Value with the Array of Stress IR
+    def calculateStress(self,stressValueIR):
+        #Overwrite StressArray from Parser.StressIR string to int values
+        StressArray = stressValueIR
         for i in range(len(StressArray)):
             if StressArray[i] == "Not affected":
                 StressArray[i] = 0
@@ -56,12 +52,11 @@ class NumericalStressArray:
                 StressArray[i] = 1
             if StressArray[i] == "Severely affected":
                 StressArray[i] = 2
-            #print(StressArray[i])
         print("Stress Array Values: ")
         print(StressArray)
         return StressArray
 
-# Question Array is used in PHQContextParser.py, when we want to see the corresponding answers to the questions below
+# Question Array is used in Parser.py, when we want to see the corresponding answers to the questions below
 QuestionArray = ["Little interest or pleasure in doing things?",
                  'Feeling down, depressed, or hopeless?',
                  'Trouble falling or staying asleep, or sleeping too much',

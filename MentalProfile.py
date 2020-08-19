@@ -1,15 +1,15 @@
 """
-Here, the information about the severity level of the depression, anxiety, and stress will come together and here,
+Here, the information about the severity level of the DAS will come together and here,
 the Inference Engine should be triggered, if the DAS-level reaches a trigger-point (>=5, respectively)
 """
 import SeverityAlgorithm
 
 class Profile:
-    def calculateProfile(self,arg1,arg2,arg3):
+    def calculateProfile(self,depressionValueIR,anxietyValueIR,stressValueIR):
         #IndividualContextualSituation = ContextualQuestionAlgorithm.ContextualCheck()
-        individualDepressionLevel = SeverityAlgorithm.Depression(arg1)
-        individualAnxietyLevel = SeverityAlgorithm.Anxiety(arg2)
-        individualStressLevel = SeverityAlgorithm.Stress(arg3)
+        individualDepressionLevel = SeverityAlgorithm.Depression(depressionValueIR)
+        individualAnxietyLevel = SeverityAlgorithm.Anxiety(anxietyValueIR)
+        individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
 
         IndividualDASArray = []
         IndividualDASArray = individualDepressionLevel, individualAnxietyLevel, individualStressLevel
@@ -17,8 +17,8 @@ class Profile:
         print(IndividualDASArray)
         return IndividualDASArray
 
-    def calculateStressLevel(self,arg3):
-        individualStressLevel = SeverityAlgorithm.Stress(arg3)
+    def calculateStressLevel(self,stressValueIR):
+        individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
         return individualStressLevel
 
 #testInstance = Profile()

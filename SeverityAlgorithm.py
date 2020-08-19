@@ -1,13 +1,15 @@
-#This file does not have classes, it has functions that can be used to derive new information from the data
-#It takes the values from the IRProcessor.py and interprets them
-#Thus creating a mental profile
+"""
+- This file does not have classes, it has functions that can be used to derive new information from the data.
+- It takes the values from the arrays created in IRProcessor.py and adds them up for each DAS respectively.
+- These DAS values are needed for the MentalProfile.py
+"""
 
 from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, NumericalStressArray
 
 #Sum of values out of 9 questions - value range: 0-3
-def Depression(arg1):
+def Depression(depressionValueIR):
     #NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1)
-    sumOfDepression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1))
+    sumOfDepression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray,depressionValueIR))
                       #sum(NumericalDepressionArray.DepressionArray)
     print("Depression Value: ")
     print(sumOfDepression)
@@ -30,8 +32,8 @@ def Depression(arg1):
 
 
 #Sum of values out of 7 questions - value range: 0-3
-def Anxiety(arg2):
-    sumOfAnxiety = sum(NumericalAnxietyArray.calculateAnxiety(NumericalAnxietyArray,arg2))
+def Anxiety(anxietyValueIR):
+    sumOfAnxiety = sum(NumericalAnxietyArray.calculateAnxiety(NumericalAnxietyArray,anxietyValueIR))
     # #print('Degree and Value of Anxiety is ',sumOfAnxiety)
     print("Anxiety Value: ")
     print(sumOfAnxiety)
@@ -52,9 +54,8 @@ def Anxiety(arg2):
 
 
 #Sum of values out of 10 questions - value range: 0-2
-def Stress(arg3):
-    print(arg3)
-    sumOfStress = sum(NumericalStressArray.calculateStress(NumericalStressArray,arg3))
+def Stress(stressValueIR):
+    sumOfStress = sum(NumericalStressArray.calculateStress(NumericalStressArray,stressValueIR))
     #print('Degree and Value of Stress is ',sumOfStress)
     print("Stress Value: ")
     print(sumOfStress)
