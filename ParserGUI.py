@@ -11,7 +11,7 @@ def PHQ_QuestionsGUI():
     AnswerArrayPHQ = []
 
 #PHQ9 Questions for Depression - Part of PHQ-D
-    allPHQ9Questions = parserPHQ.add_argument_group('PHQ-9 for Depression') #Groups the Questions in a tab
+    allPHQ9Questions = parserPHQ.add_argument_group('PHQ-9 for Depression1') #Groups the Questions in a tab
 
     interestOrPleasureinDoingThings = allPHQ9Questions.add_argument(
         "littleInterestInDoingThings", #equal to AnswerArrayPHQ[0]

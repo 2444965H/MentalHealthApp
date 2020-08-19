@@ -1,17 +1,19 @@
 from gooey import Gooey
 from gooey import GooeyParser
 
+AnswerArrayContextGUI = []
+
 @Gooey(program_name='Contextual Questions',
        tabbed_groups=True,
        navigation='Tabbed',
        fullscreen=True)
 
 def contextualQuestionsGUI():
-    parser = GooeyParser(description="Please go through the 4 tabs and answer the questions")
-    AnswerArray = []
+    parserGUI = GooeyParser(description="Please go through the 4 tabs and answer the questions")
+    #AnswerArrayContextGUI = []
 
 #Financial Questions
-    allFinancialQuestions = parser.add_argument_group('Financial') #Groups the questions in a tab and gives them a name
+    allFinancialQuestions = parserGUI.add_argument_group('Financial') #Groups the questions in a tab and gives them a name
 
     financialQuestionFinancialDistress = allFinancialQuestions.add_argument(
         "financialdistress", #equal to AnswerArray[0]
@@ -32,7 +34,7 @@ def contextualQuestionsGUI():
     )
 
 #Family Questions
-    allFamilyQuestions = parser.add_argument_group('Family') #Groups the questions in a tab and gives them a name
+    allFamilyQuestions = parserGUI.add_argument_group('Family') #Groups the questions in a tab and gives them a name
 
     familyQuestionCaretaker = allFamilyQuestions.add_argument(
         "isCaretaker", #equal to AnswerArray[2]
@@ -74,7 +76,7 @@ def contextualQuestionsGUI():
     )
 
 #Leisure Questions
-    allLeisureQuestions = parser.add_argument_group('Leisure')
+    allLeisureQuestions = parserGUI.add_argument_group('Leisure')
 
     leisureQuestionEnoughTimeForOneself = allLeisureQuestions.add_argument(
         "enoughTimeForOneself",
@@ -98,7 +100,7 @@ def contextualQuestionsGUI():
     )
 
  #Social Questions
-    allSocialQuestions = parser.add_argument_group('Social') #Groups the questions in a tab and gives them a name
+    allSocialQuestions = parserGUI.add_argument_group('Social') #Groups the questions in a tab and gives them a name
 
     socialQuestionAnySocialActivities = allSocialQuestions.add_argument(
         "anySocialActivities",
@@ -161,33 +163,33 @@ def contextualQuestionsGUI():
     #Disable the AnswerArray.append below AND the Question above AND adjust AnswerArray length in KnowledgeEngineRun.py,
     #if you want it disabled in the GUI
     #Financial Questions
-    AnswerArray.append(parser.parse_args().financialdistress)
-    AnswerArray.append(parser.parse_args().employment)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().financialdistress)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().employment)
 
     #Family/Caretaker Questions
-    AnswerArray.append(parser.parse_args().isCaretaker)
-    AnswerArray.append(parser.parse_args().getsEnoughSupport)
-    AnswerArray.append(parser.parse_args().caringForAdults)
-    AnswerArray.append(parser.parse_args().caringForU18Children)
-    AnswerArray.append(parser.parse_args().caringForDisabledChildren)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().isCaretaker)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().getsEnoughSupport)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().caringForAdults)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().caringForU18Children)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().caringForDisabledChildren)
 
     #Leisure Questions
-    AnswerArray.append(parser.parse_args().enoughTimeForOneself)
-    AnswerArray.append(parser.parse_args().leisureTimePlanned)
-    AnswerArray.append(parser.parse_args().leisureTimePlannedExecuted)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().enoughTimeForOneself)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().leisureTimePlanned)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().leisureTimePlannedExecuted)
 
     #Social Questions
-    AnswerArray.append(parser.parse_args().anySocialActivities)
-    AnswerArray.append(parser.parse_args().missedOutDueExternalFactors)
-    AnswerArray.append(parser.parse_args().alternativeMeeting)
-    AnswerArray.append(parser.parse_args().stayedOut)
-    AnswerArray.append(parser.parse_args().negativeSocialExchanges)
-    AnswerArray.append(parser.parse_args().resolved)
-    AnswerArray.append(parser.parse_args().futureStrategy)
-    AnswerArray.append(parser.parse_args().sensibleResolvePossible)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().anySocialActivities)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().missedOutDueExternalFactors)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().alternativeMeeting)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().stayedOut)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().negativeSocialExchanges)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().resolved)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().futureStrategy)
+    AnswerArrayContextGUI.append(parserGUI.parse_args().sensibleResolvePossible)
 
     # args = parser.parse_args()    #Redo uncomment this to check what input it takes in GUI
     # print("Response:", args)      #Redo uncomment this to check what input it takes in GUI
 
-    return AnswerArray
+    return AnswerArrayContextGUI
 

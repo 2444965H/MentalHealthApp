@@ -36,24 +36,24 @@ print("Selected answers:")
 for x in range(0, 26):  # NumberOfAnswersReturnedByGUI #declareAnswerArry[x+1]
         print("- " + QuestionArray[x] + "  " + AnswerArrayPHQ[x])
 
-class DepressionIR:
-    DepressionArray = []
-    for x in range(0,9):
-        DepressionArray.append(AnswerArrayPHQ[x])
-    #print("Value of Depression Array: ")
-    #print(DepressionArray)
-    #print(len(DepressionArray)) #will print how many values in the array are
-
-class AnxietyIR:
-    AnxietyArray = []
-    for x in range(9,16):
-        AnxietyArray.append(AnswerArrayPHQ[x])
-    #print("Value of Anxiety Array: ")
-    #print(AnxietyArray)
-
-class StressIR:
-    StressArray = []
-    for x in range (16,26):
-        StressArray.append(AnswerArrayPHQ[x])
-    #print("Value of Stress Array: ")
-    #print(StressArray)
+# class DepressionIR:
+#     DepressionArray = []
+#     for x in range(0,9):
+#         DepressionArray.append(AnswerArrayPHQ[x])
+#     #print("Value of Depression Array: ")
+#     #print(DepressionArray)
+#     #print(len(DepressionArray)) #will print how many values in the array are
+#
+# class AnxietyIR:
+#     AnxietyArray = []
+#     for x in range(9,16):
+#         AnxietyArray.append(AnswerArrayPHQ[x])
+#     #print("Value of Anxiety Array: ")
+#     #print(AnxietyArray)
+#
+# class StressIR:
+#     StressArray = []
+#     for x in range (16,26):
+#         StressArray.append(AnswerArrayPHQ[x])
+#     #print("Value of Stress Array: ")
+#     #print(StressArray)

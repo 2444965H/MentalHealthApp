@@ -2,12 +2,14 @@
 #It takes the values from the IRProcessor.py and interprets them
 #Thus creating a mental profile
 
-from Parser import DepressionIR, AnxietyIR, StressIR
 from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, NumericalStressArray
 
 #Sum of values out of 9 questions - value range: 0-3
-def Depression():
-    sumOfDepression = sum(NumericalDepressionArray.DepressionArray)
+def Depression(arg1):
+    #NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1)
+    sumOfDepression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1))#sum(NumericalDepressionArray.DepressionArray)
+    print("Depression Value: ")
+    print(sumOfDepression)
     #print('Degree and Value of Depression is ',sumOfDepression)
     if sumOfDepression <=4:
         #print('minimal depressive symptomps')
@@ -24,10 +26,14 @@ def Depression():
     else:
         print('Something went wrong')
 
+
+
 #Sum of values out of 7 questions - value range: 0-3
-def Anxiety():
-    sumOfAnxiety = sum(NumericalAnxietyArray.AnxietyArray)
-    #print('Degree and Value of Anxiety is ',sumOfAnxiety)
+def Anxiety(arg2):
+    sumOfAnxiety = sum(NumericalAnxietyArray.calculateAnxiety(NumericalAnxietyArray,arg2))
+    # #print('Degree and Value of Anxiety is ',sumOfAnxiety)
+    print("Anxiety Value: ")
+    print(sumOfAnxiety)
     if sumOfAnxiety <=4:
         #print('minimal anxiety symptomps')
         return sumOfAnxiety
@@ -43,10 +49,14 @@ def Anxiety():
     else:
         print('Something went wrong')
 
+
 #Sum of values out of 10 questions - value range: 0-2
-def Stress():
-    sumOfStress = sum(NumericalStressArray.StressArray)
+def Stress(arg3):
+    print(arg3)
+    sumOfStress = sum(NumericalStressArray.calculateStress(NumericalStressArray,arg3))
     #print('Degree and Value of Stress is ',sumOfStress)
+    print("Stress Value: ")
+    print(sumOfStress)
     if sumOfStress <=4:
         #print('minimally distinct psychosocial stress factors')
         return sumOfStress
@@ -62,9 +72,6 @@ def Stress():
     else:
         print('Something went wrong')
 
-print("Depression Value: ")
-print(sum(NumericalDepressionArray.DepressionArray))
-print("Anxiety Value: ")
-print(sum(NumericalAnxietyArray.AnxietyArray))
-print("Stress Value: ")
-print(sum(NumericalStressArray.StressArray))
+
+
+

@@ -30,18 +30,25 @@ class SocialFact(Fact):
     """Info about the social situation: Sub-attributes are "" and ""."""
     pass
 
-class DASLevel(Fact):
+class DASLevelFact(Fact):
     """Info about the depression/anxiety/stress: Sub-attributes are "depression","anxiety", and "stress". """
     pass
 
-#Variable declaration for highest, in other word "max", overall value of all DAS parameters of the indvidiual
-maxIndValueOfDAS =  max(MentalProfile.Profile.IndividualDASArray)
-maxIndValueOfDASFiveToNine = (maxIndValueOfDAS >=5 and maxIndValueOfDAS <10) #If the highest DAS value is from 5-9
-maxIndValueOfDASTenToFourteen = (maxIndValueOfDAS >=10 and maxIndValueOfDAS<15) #If the highest DAS value is from 10-14
-maxIndValueOfDASFifteen = (maxIndValueOfDAS >=15) #If the highest DAS value is 15 or higher
+maxIndValueOfDAS = 0
+maxIndValueOfDASFiveToNine = False
+maxIndValueOfDASTenToFourteen = False
+maxIndValueOfDASFifteen = False
+individualStressLevel = 0
 
-#Variable declaration for stress level
-individualStressLevel = MentalProfile.Profile.individualStressLevel
+# def initializeDASLevels(arg1,arg2,arg3):
+#     #Variable declaration for highest, in other word "max", overall value of all DAS parameters of the indvidiual
+#     maxIndValueOfDAS =  max(MentalProfile.Profile.calculateProfile(MentalProfile.Profile,arg1,arg2,arg3))
+#     maxIndValueOfDASFiveToNine = (maxIndValueOfDAS >=5 and maxIndValueOfDAS <10) #If the highest DAS value is from 5-9
+#     maxIndValueOfDASTenToFourteen = (maxIndValueOfDAS >=10 and maxIndValueOfDAS<15) #If the highest DAS value is from 10-14
+#     maxIndValueOfDASFifteen = (maxIndValueOfDAS >=15) #If the highest DAS value is 15 or higher
+#
+#     #Variable declaration for stress level
+#     individualStressLevel = MentalProfile.Profile.calculateStressLevel(MentalProfile.Profile,arg3)
 
 #Knowledge Engine
 class ContextualQuestions(KnowledgeEngine):
