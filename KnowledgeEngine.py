@@ -13,7 +13,6 @@ import RecommendationsFinancial
 import RecommendationsLeisure
 import RecommendationsSocial
 
-
 class FinancialFact(Fact):
     """Info about the financial situation: Sub-attributes are "financialDistress" and "employment"."""
     pass
@@ -114,14 +113,6 @@ class ContextualQuestions(KnowledgeEngine):
     def family_situation_1(self):
         print(RecommendationsCaregiver.caregiver_advice_1)
 
-    # @Rule(FamilyFact(isCaretaker='Yes, I am a caregiver'),
-    #       FamilyFact(getsEnoughSupport='No, I have not enough support'))
-    # # isCaretaker=Yes & getsEnoughSupport=No
-    # # will be triggered independently of who the user has to care for (adults, childrenU18, disabled children)
-    # def family_situation_2(self):
-    #     if maxIndValueOfDAS >= 5: #always applicable, if there is any persisting burden
-    #         print(RecommendationsCaregiver.caregiver_advice_cluster_1_2)
-
     @Rule(FamilyFact(isCaretaker='Yes, I am a caregiver'),
           FamilyFact(getsEnoughSupport='No, I have not enough support'),
           FamilyFact(caringForAdults='Yes, I am a caregiver for an adult'))
@@ -148,11 +139,10 @@ class ContextualQuestions(KnowledgeEngine):
         if maxIndValueOfDASFifteen:
             print(RecommendationsCaregiver.caregiver_advice_cluster_1_2_3_4)
 
-
     @Rule(FamilyFact(isCaretaker='Yes, I am a caregiver'),
           FamilyFact(getsEnoughSupport='No, I have not enough support'),
           FamilyFact(caringForChildren='Yes, I am a caregiver for at least one child under 18'))
-    # isCaretaker=Yes & getsEnoughSupport=Yes & caringForU18Children=Yes
+    # isCaretaker=Yes & getsEnoughSupport=No & caringForU18Children=Yes
     def family_situation_5(self):
         if maxIndValueOfDASFiveToNine:
             print(RecommendationsCaregiver.caregiver_advice_5)
