@@ -30,6 +30,12 @@ class OldSocialFact(Fact):
 class NewSocialFact(Fact):
     pass
 
+class OldDASLevelFact(Fact):
+    pass
+
+class NewDASLevelFact(Fact):
+    pass
+
 class ComparingOldInputWithNew(KnowledgeEngine):
     # Financial Comparison
     # If the user was in financial distress before, but now isn't
@@ -62,7 +68,9 @@ class ComparingOldInputWithNew(KnowledgeEngine):
 
     #if the user has higher depression, anxiety, stress level and also had reduced leisure time
     @Rule(OldLeisureFact(enoughTimeForOneself='Yes, I had enough leisure time for myself'),
-          NewLeisureFact(enoughTimeForOneself='No, I did not have enough leisure time for myself'))
+          NewLeisureFact(enoughTimeForOneself='No, I did not have enough leisure time for myself'),
+          OldDASLevelFact(maxIndValueOfDAS= ),
+          NewDASLevelFact(maxIndValueOfDAS= ),
     def leisure_change_3(self):
         print("You seem to be in higher distress than last time! Since the last time, you reduced your leisure time. "
               "Maybe take some breaks again for your mental health!")
@@ -73,7 +81,6 @@ class ComparingOldInputWithNew(KnowledgeEngine):
           NewSocialFact(negativeSocialExchanges='Yes, I had negative social exchanges'),
           OldSocialFact(resolved='No, I did not resolve the negative social exchange(s)'),
           NewSocialFact(resolved='Yes, I resolved the negative social exchange(s)'))
-    # negativeSocialExchanges=yes & resolved=yes & futureStrategy=no
     def social_change_1(self):
         print("How do feel after having resolved a negative social exchange?")
 

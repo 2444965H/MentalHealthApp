@@ -97,6 +97,7 @@ InputArray.append(individualAnxietyLevel)
 InputArray.append(individualStressLevel)
 for x in range(26,44):
     InputArray.append(AnswerArrayCP[x])
+InputArray.append(maxIndValueOfDAS)
 
 dbOldFactsArray = database.insertInDB(InputArray)
 
@@ -104,23 +105,20 @@ dbOldFactsArray = database.insertInDB(InputArray)
 engineTwo = KnowledgeEngineTwo.ComparingOldInputWithNew()
 engineTwo.reset()  # Prepare the engine for the execution.
 
-# Declaring Financial Facts
-engineTwo.declare(KnowledgeEngineTwo.NewFinancialFact(financialDistress=AnswerArrayCP[26]))  # GUIINPUT instead of hardcode
-engineTwo.declare(KnowledgeEngineTwo.NewFinancialFact(employment=AnswerArrayCP[27]))  # GUIINPUT instead of hardcode
-
-# Declaring Family Facts
-engineTwo.declare(KnowledgeEngineTwo.NewFamilyFact(isCaretaker=AnswerArrayCP[28]))  # GUIINPUT instead of hardcode
+# EngineTwo Declaring New Facts
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(individualDepressionLevel=individualDepressionLevel))
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(individualAnxietyLevel=individualAnxietyLevel))
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(individualStressLevel=individualStressLevel))
+engineTwo.declare(KnowledgeEngineTwo.NewFinancialFact(financialDistress=AnswerArrayCP[26]))
+engineTwo.declare(KnowledgeEngineTwo.NewFinancialFact(employment=AnswerArrayCP[27]))
+engineTwo.declare(KnowledgeEngineTwo.NewFamilyFact(isCaretaker=AnswerArrayCP[28]))
 engineTwo.declare(KnowledgeEngineTwo.NewFamilyFact(getsEnoughSupport=AnswerArrayCP[29]))
 engineTwo.declare(KnowledgeEngineTwo.NewFamilyFact(caringForAdults=AnswerArrayCP[30]))
 engineTwo.declare(KnowledgeEngineTwo.NewFamilyFact(caringForU18Children=AnswerArrayCP[31]))
 engineTwo.declare(KnowledgeEngineTwo.NewFamilyFact(caringForDisabledChildren=AnswerArrayCP[32]))
-
-# Declaring Leisure Facts
 engineTwo.declare(KnowledgeEngineTwo.NewLeisureFact(enoughTimeForOneself=AnswerArrayCP[33]))
 engineTwo.declare(KnowledgeEngineTwo.NewLeisureFact(leisureTimePlanned=AnswerArrayCP[34]))
 engineTwo.declare(KnowledgeEngineTwo.NewLeisureFact(leisureTimePlannedExecuted=AnswerArrayCP[35]))
-
-# Declaring Social Facts
 engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(anySocialActivities=AnswerArrayCP[36]))
 engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(missedOutDueExternalFactors=AnswerArrayCP[37]))
 engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(alternativeMeeting=AnswerArrayCP[38]))
@@ -129,7 +127,30 @@ engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(negativeSocialExchanges=Answe
 engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(resolved=AnswerArrayCP[41]))
 engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(futureStrategy=AnswerArrayCP[42]))
 engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(sensibleResolvePossible=AnswerArrayCP[43]))
+engineTwo.declare(KnowledgeEngineTwo.NewDASLevelFact(maxIndValueOfDAS=maxIndValueOfDAS))
 
-#EngineTwo Declare Old Facts mit dbOldFacts Array
+#EngineTwo Declare Old Facts with dbOldFacts Array
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(individualDepressionLevel=dbOldFactsArray[1]))
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(individualAnxietyLevel=dbOldFactsArray[2]))
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(individualStressLevel=dbOldFactsArray[3]))
+engineTwo.declare(KnowledgeEngineTwo.OldFinancialFact(financialDistress=dbOldFactsArray[4]))
+engineTwo.declare(KnowledgeEngineTwo.OldFinancialFact(employment=dbOldFactsArray[5]))
+engineTwo.declare(KnowledgeEngineTwo.OldFamilyFact(isCaretaker=dbOldFactsArray[6]))
+engineTwo.declare(KnowledgeEngineTwo.OldFamilyFact(getsEnoughSupport=dbOldFactsArray[7]))
+engineTwo.declare(KnowledgeEngineTwo.OldFamilyFact(caringForAdults=dbOldFactsArray[8]))
+engineTwo.declare(KnowledgeEngineTwo.OldFamilyFact(caringForU18Children=dbOldFactsArray[9]))
+engineTwo.declare(KnowledgeEngineTwo.OldFamilyFact(caringForDisabledChildren=dbOldFactsArray[10]))
+engineTwo.declare(KnowledgeEngineTwo.OldLeisureFact(enoughTimeForOneself=dbOldFactsArray[11]))
+engineTwo.declare(KnowledgeEngineTwo.OldLeisureFact(leisureTimePlanned=dbOldFactsArray[12]))
+engineTwo.declare(KnowledgeEngineTwo.OldLeisureFact(leisureTimePlannedExecuted=dbOldFactsArray[13]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(anySocialActivities=dbOldFactsArray[14]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(missedOutDueExternalFactors=dbOldFactsArray[15]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(alternativeMeeting=dbOldFactsArray[16]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(stayedOut=dbOldFactsArray[17]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(negativeSocialExchanges=dbOldFactsArray[18]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(resolved=dbOldFactsArray[19]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(futureStrategy=dbOldFactsArray[20]))
+engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(sensibleResolvePossible=dbOldFactsArray[21]))
+engineTwo.declare(KnowledgeEngineTwo.OldDASLevelFact(maxIndValueOfDAS=dbOldFactsArray[22]))
 
 engineTwo.run() # Executes & runs it

@@ -20,7 +20,7 @@ def insertInDB(InputArray):
                'missedOutDueExternalFactors': dbArray[15], 'alternativeMeeting': dbArray[16],
                'stayedOut': dbArray[17], 'negativeSocialExchanges': dbArray[18],
                'resolved': dbArray[19], 'futureStrategy': dbArray[20],
-               'sensibleResolvePossible': dbArray[21]})
+               'sensibleResolvePossible': dbArray[21], 'maxIndValueOfDAS': dbArray[22]})
 
     print(len(db))
     dbOldArray = db.get(DBQuery.ID == dbArray[0])
