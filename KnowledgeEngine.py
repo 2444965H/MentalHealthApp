@@ -1,13 +1,11 @@
 """
-- Inference machine: Here, Knowledge Base (Rules) and Facts are matched together
-- From experta Documentation, Chapter 3, page 11: The class (KnowledgeEngine) is instantiated, populated with facts,
+- Based on the rules defined in this file, the ReliefER triggers recommendation. An expert's knowledge is mimicked here.
+- experta Documentation, Chapter 3, p. 11: The class (KnowledgeEngine) is instantiated, populated with facts,
 and then executed
-- PLEASE NOTE: As long as there are more than 1 triggers firing, experta does not care which rule is being executed first
+- PLEASE NOTE: If there are  ≥1 triggers firing, experta executes those rules randomly (no internal order of items)
 - Abbreviations: DAS ≙ Depression, Anxiety, Stress
 """
-
-from experta import * #They DO NOT MAINTAIN AN INTERNAL ORDER OF ITEMS #From experta Documentation, Chapter 3, page 8
-import MentalProfile
+from experta import *
 import RecommendationsCaregiver
 import RecommendationsFinancial
 import RecommendationsLeisure
@@ -38,16 +36,6 @@ maxIndValueOfDASFiveToNine = False
 maxIndValueOfDASTenToFourteen = False
 maxIndValueOfDASFifteen = False
 individualStressLevel = 0
-
-# def initializeDASLevels(arg1,arg2,arg3):
-#     #Variable declaration for highest, in other word "max", overall value of all DAS parameters of the indvidiual
-#     maxIndValueOfDAS =  max(MentalProfile.Profile.calculateProfile(MentalProfile.Profile,arg1,arg2,arg3))
-#     maxIndValueOfDASFiveToNine = (maxIndValueOfDAS >=5 and maxIndValueOfDAS <10) #If the highest DAS value is from 5-9
-#     maxIndValueOfDASTenToFourteen = (maxIndValueOfDAS >=10 and maxIndValueOfDAS<15) #If the highest DAS value is from 10-14
-#     maxIndValueOfDASFifteen = (maxIndValueOfDAS >=15) #If the highest DAS value is 15 or higher
-#
-#     #Variable declaration for stress level
-#     individualStressLevel = MentalProfile.Profile.calculateStressLevel(MentalProfile.Profile,arg3)
 
 #Knowledge Engine
 class ContextualQuestions(KnowledgeEngine):
@@ -130,7 +118,7 @@ class ContextualQuestions(KnowledgeEngine):
     @Rule(FamilyFact(isCaretaker='Yes, I am a caregiver'),
           FamilyFact(getsEnoughSupport='No, I have not enough support'),
           FamilyFact(caringForDisabledChildren='Yes, I am a caregiver for at least one disabled child'))
-    # isCaretaker=Yes & getsEnoughSupport=Yes & caringForDisabledChildren=Yes
+    # isCaretaker=Yes & getsEnoughSupport=No & caringForDisabledChildren=Yes
     def family_situation_4(self):
         if maxIndValueOfDASFiveToNine:
             print(RecommendationsCaregiver.caregiver_advice_1)

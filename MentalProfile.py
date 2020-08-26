@@ -17,6 +17,14 @@ class Profile:
         print(IndividualDASArray)
         return IndividualDASArray
 
+    def calculateDepressionLevel(self,depressionValueIR):
+        individualDepressionLevel = SeverityAlgorithm.Depression(depressionValueIR)
+        return individualDepressionLevel
+
+    def calculateAnxietyLevel(self,anxietyValueIR):
+        individualAnxietyLevel = SeverityAlgorithm.Anxiety(anxietyValueIR)
+        return individualAnxietyLevel
+
     def calculateStressLevel(self,stressValueIR):
         individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
         return individualStressLevel

@@ -281,7 +281,7 @@ def PHQ_QuestionsGUI():
 
     familyQuestionEnoughSupport = allFamilyQuestions.add_argument(
         "getsEnoughSupport",  # equal to AnswerArray[3]
-        metavar='Do you have/get enough support as a caregiver? E.g. from partner, social workers',
+        metavar='Do you have/get enough support as a caregiver? E.g. from partner, social workers?',
         choices=['Yes, I have enough support',
                  'No, I have not enough support',
                  'Not applicable - not a caregiver']
@@ -368,7 +368,7 @@ def PHQ_QuestionsGUI():
 
     socialQuestionNegativeExchanges = allSocialQuestions.add_argument(
         "negativeSocialExchanges",
-        metavar='Did you have any negative  social exchanges?',
+        metavar='Did you have any negative social exchanges?',
         choices=['Yes, I had negative social exchanges',
                  'No, I did not have any negative social exchanges']
     )
