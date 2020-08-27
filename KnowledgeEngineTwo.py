@@ -30,10 +30,8 @@ class OldSocialFact(Fact):
 class NewSocialFact(Fact):
     pass
 
-class OldDASLevelFact(Fact):
-    pass
-
-class NewDASLevelFact(Fact):
+class DASLevelFact(Fact):
+    #higherThanBefore #LowerThanBefore #lowerStress #higherStress #higherDepression #lowerDepression #higherAnxiety #lowerAnxiety
     pass
 
 class ComparingOldInputWithNew(KnowledgeEngine):
@@ -69,8 +67,7 @@ class ComparingOldInputWithNew(KnowledgeEngine):
     #if the user has higher depression, anxiety, stress level and also had reduced leisure time
     @Rule(OldLeisureFact(enoughTimeForOneself='Yes, I had enough leisure time for myself'),
           NewLeisureFact(enoughTimeForOneself='No, I did not have enough leisure time for myself'),
-          OldDASLevelFact(maxIndValueOfDAS= ),
-          NewDASLevelFact(maxIndValueOfDAS= ),
+          DASLevelFact(higherThanBefore='Yes'))
     def leisure_change_3(self):
         print("You seem to be in higher distress than last time! Since the last time, you reduced your leisure time. "
               "Maybe take some breaks again for your mental health!")

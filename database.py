@@ -10,7 +10,7 @@ DBQuery = Query()
 def insertInDB(InputArray):
     dbArray = []
     dbArray = InputArray #database array is filled with the input given from Parser.py
-    db.insert({'ID': dbArray[0], 'individualDepressionLevel': dbArray[1],
+    db.upsert({'ID': dbArray[0], 'individualDepressionLevel': dbArray[1],
                'individualAnxietyLevel': dbArray[2], 'individualStressLevel':dbArray[3],
                'financialdistress': dbArray[4], 'employment': dbArray[5], 'isCaretaker': dbArray[6],
                'getsEnoughSupport': dbArray[7], 'caringForAdults': dbArray[8],
@@ -20,12 +20,18 @@ def insertInDB(InputArray):
                'missedOutDueExternalFactors': dbArray[15], 'alternativeMeeting': dbArray[16],
                'stayedOut': dbArray[17], 'negativeSocialExchanges': dbArray[18],
                'resolved': dbArray[19], 'futureStrategy': dbArray[20],
-               'sensibleResolvePossible': dbArray[21], 'maxIndValueOfDAS': dbArray[22]})
+               'sensibleResolvePossible': dbArray[21], 'maxIndValueOfDAS': dbArray[22]}, DBQuery.ID == dbArray[0])
 
-    print(len(db))
-    dbOldArray = db.get(DBQuery.ID == dbArray[0])
+    #print(len(db))
+    #dbOldArray = db.get(DBQuery.ID == dbArray[0])
+    print("New Entry has been entered, old entry has been overwritten")
     print(db.get(DBQuery.ID == dbArray[0]))
-    return dbOldArray
+    #return dbOldArray
+
+#Called in Parser.py
+def readFromDB(Username):
+    dbOldEntry = db.get(DBQuery.ID == Username)
+    return dbOldEntry
 
 # ID
 # individualDepressionLevel
