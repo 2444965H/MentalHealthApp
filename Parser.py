@@ -100,9 +100,10 @@ for x in range(26,44):
     InputArray.append(AnswerArrayCP[x])
 InputArray.append(maxIndValueOfDAS)
 ###### If this is the first execution, do not compare "Old" values with "new" ones ####
-if database.readFromDB(Username) is None:
+if database.checkExistence(Username) is None:
     print("No previous data found")
 else:
+    dbOldFactsArray = []
     dbOldFactsArray = database.readFromDB(Username) #is this really an array
 
 

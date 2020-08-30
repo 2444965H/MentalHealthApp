@@ -86,7 +86,6 @@ def PHQ_QuestionsGUI():
                  "Nearly every day"]
     )
 
-
     hurtingOneself = allPHQ9Questions.add_argument(
         "hurtingOneself", #equal to AnswerArrayPHQ[8]
         metavar='Thoughts that you would be better off dead or of hurting yourself in some way',

@@ -1,6 +1,5 @@
 """
-
-
+- KnowledgeEngine dedicated for comparing the current and last user input for changes and advising on that change
 """
 from experta import *
 
@@ -31,7 +30,9 @@ class NewSocialFact(Fact):
     pass
 
 class DASLevelFact(Fact):
-    #higherThanBefore #LowerThanBefore #lowerStress #higherStress #higherDepression #lowerDepression #higherAnxiety #lowerAnxiety
+    """Passing values concerning DAS: higherThanBefore, LowerThanBefore, lowerStress, higherStress, higherDepression,
+    lowerDepression, higherAnxiety, lowerAnxiety
+    """
     pass
 
 class ComparingOldInputWithNew(KnowledgeEngine):

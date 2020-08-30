@@ -10,6 +10,7 @@ DBQuery = Query()
 def insertInDB(InputArray):
     dbArray = []
     dbArray = InputArray #database array is filled with the input given from Parser.py
+    #db.upsert: If there are already values, then update db - otherwise insert the new value in empty db.
     db.upsert({'ID': dbArray[0], 'individualDepressionLevel': dbArray[1],
                'individualAnxietyLevel': dbArray[2], 'individualStressLevel':dbArray[3],
                'financialdistress': dbArray[4], 'employment': dbArray[5], 'isCaretaker': dbArray[6],
@@ -29,8 +30,37 @@ def insertInDB(InputArray):
     #return dbOldArray
 
 #Called in Parser.py
+def checkExistence(Username):
+    dbExistence= db.get(DBQuery.ID == Username)
+    return dbExistence
+
 def readFromDB(Username):
-    dbOldEntry = db.get(DBQuery.ID == Username)
+    dbOldEntry = []
+    dbOldQuery = db.get(DBQuery.ID == Username)
+    dbOldEntry.append(dbOldQuery['ID'])
+    dbOldEntry.append(dbOldQuery['individualDepressionLevel'])
+    dbOldEntry.append(dbOldQuery['individualAnxietyLevel'])
+    dbOldEntry.append(dbOldQuery['individualStressLevel'])
+    dbOldEntry.append(dbOldQuery['financialdistress'])
+    dbOldEntry.append(dbOldQuery['employment'])
+    dbOldEntry.append(dbOldQuery['isCaretaker'])
+    dbOldEntry.append(dbOldQuery['getsEnoughSupport'])
+    dbOldEntry.append(dbOldQuery['caringForAdults'])
+    dbOldEntry.append(dbOldQuery['caringForU18Children'])
+    dbOldEntry.append(dbOldQuery['caringForDisabledChildren'])
+    dbOldEntry.append(dbOldQuery['enoughTimeForOneself'])
+    dbOldEntry.append(dbOldQuery['leisureTimePlanned'])
+    dbOldEntry.append(dbOldQuery['leisureTimePlannedExecuted'])
+    dbOldEntry.append(dbOldQuery['anySocialActivities'])
+    dbOldEntry.append(dbOldQuery['missedOutDueExternalFactors'])
+    dbOldEntry.append(dbOldQuery['alternativeMeeting'])
+    dbOldEntry.append(dbOldQuery['stayedOut'])
+    dbOldEntry.append(dbOldQuery['negativeSocialExchanges'])
+    dbOldEntry.append(dbOldQuery['resolved'])
+    dbOldEntry.append(dbOldQuery['futureStrategy'])
+    dbOldEntry.append(dbOldQuery['sensibleResolvePossible'])
+    dbOldEntry.append(dbOldQuery['maxIndValueOfDAS'])
+
     return dbOldEntry
 
 # ID
