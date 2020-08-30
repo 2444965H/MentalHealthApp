@@ -3,37 +3,47 @@
 """
 from experta import *
 
+
 class OldFinancialFact(Fact):
     """Info about the financial input given the last time the program was executed (taken from database)."""
     pass
+
 
 class NewFinancialFact(Fact):
     """Info about the financial input given now."""
     pass
 
+
 class OldFamilyFact(Fact):
     pass
+
 
 class NewFamilyFact(Fact):
     pass
 
+
 class OldLeisureFact(Fact):
     pass
+
 
 class NewLeisureFact(Fact):
     pass
 
+
 class OldSocialFact(Fact):
     pass
 
+
 class NewSocialFact(Fact):
     pass
+
 
 class DASLevelFact(Fact):
     """Passing values concerning DAS: higherThanBefore, LowerThanBefore, lowerStress, higherStress, higherDepression,
     lowerDepression, higherAnxiety, lowerAnxiety
     """
     pass
+
 
 class ComparingOldInputWithNew(KnowledgeEngine):
     # Financial Comparison
@@ -65,7 +75,7 @@ class ComparingOldInputWithNew(KnowledgeEngine):
         print("Good thinking ahead! Last time, you did not plan on taking time off. "
               "Plan to take time off regularly so you don't burn out!")
 
-    #if the user has higher depression, anxiety, stress level and also had reduced leisure time
+    # if the user has higher depression, anxiety, stress level and also had reduced leisure time
     @Rule(OldLeisureFact(enoughTimeForOneself='Yes, I had enough leisure time for myself'),
           NewLeisureFact(enoughTimeForOneself='No, I did not have enough leisure time for myself'),
           DASLevelFact(higherThanBefore='Yes'))

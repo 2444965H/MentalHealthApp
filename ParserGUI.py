@@ -2,19 +2,19 @@ from gooey import Gooey
 from gooey import GooeyParser
 
 
-@Gooey(program_name='Complete Questionaire',
+@Gooey(program_name='Complete Questionnaire',
        tabbed_groups=True,
        navigation='Tabbed',
        fullscreen=True)
-def PHQ_QuestionsGUI():
+def questionsForGUI_PHQ():
     parserGUI = GooeyParser(description="Please go through all 7 tabs and answer the questions")
     AnswerArrayGUI = []
 
-#PHQ9 Questions for Depression - Part of PHQ-D
-    allPHQ9Questions = parserGUI.add_argument_group('PHQ-9 for Depression') #Groups the Questions in a tab
+    # PHQ9 Questions for Depression - Part of PHQ-D
+    allPHQ9Questions = parserGUI.add_argument_group('PHQ-9 for Depression')  # Groups the Questions in a tab
 
     interestOrPleasureinDoingThings = allPHQ9Questions.add_argument(
-        "littleInterestInDoingThings", #equal to AnswerArrayPHQ[0]
+        "littleInterestInDoingThings",  # equal to AnswerArrayPHQ[0]
         metavar='Little interest or pleasure in doing things?',
         choices=["Not at all",
                  "Several days",
@@ -23,7 +23,7 @@ def PHQ_QuestionsGUI():
     )
 
     feelingDown = allPHQ9Questions.add_argument(
-        "feelingDown", #equal to AnswerArrayPHQ[1]
+        "feelingDown",  # equal to AnswerArrayPHQ[1]
         metavar='Feeling down, depressed, or hopeless?',
         choices=["Not at all",
                  "Several days",
@@ -32,7 +32,7 @@ def PHQ_QuestionsGUI():
     )
 
     troubleSleeping = allPHQ9Questions.add_argument(
-        "troubleSleeping", #equal to AnswerArrayPHQ[2]
+        "troubleSleeping",  # equal to AnswerArrayPHQ[2]
         metavar='Trouble falling or staying asleep, or sleeping too much',
         choices=["Not at all",
                  "Several days",
@@ -41,7 +41,7 @@ def PHQ_QuestionsGUI():
     )
 
     feelingTired = allPHQ9Questions.add_argument(
-        "feelingTired", #equal to AnswerArrayPHQ[3]
+        "feelingTired",  # equal to AnswerArrayPHQ[3]
         metavar='Feeling tired or having little energy',
         choices=["Not at all",
                  "Several days",
@@ -50,7 +50,7 @@ def PHQ_QuestionsGUI():
     )
 
     poorAppetite = allPHQ9Questions.add_argument(
-        "poorAppetite", #equal to AnswerArrayPHQ[4]
+        "poorAppetite",  # equal to AnswerArrayPHQ[4]
         metavar='Poor apppetite or overeating',
         choices=["Not at all",
                  "Several days",
@@ -59,7 +59,7 @@ def PHQ_QuestionsGUI():
     )
 
     feelingBadAboutYourself = allPHQ9Questions.add_argument(
-        "feelingBadAboutYourself", #equal to AnswerArrayPHQ[5]
+        "feelingBadAboutYourself",  # equal to AnswerArrayPHQ[5]
         metavar='Feeling bad about yourself - or that you are a failure or have let yourself or your family down',
         choices=["Not at all",
                  "Several days",
@@ -68,7 +68,7 @@ def PHQ_QuestionsGUI():
     )
 
     badConcentration = allPHQ9Questions.add_argument(
-        "badConcentration", #equal to AnswerArrayPHQ[6]
+        "badConcentration",  # equal to AnswerArrayPHQ[6]
         metavar='Trouble concentrating on things, such as reading the newspaper or watching television',
         choices=["Not at all",
                  "Several days",
@@ -77,9 +77,10 @@ def PHQ_QuestionsGUI():
     )
 
     speakingSlowORFast = allPHQ9Questions.add_argument(
-        "speakingSlowORFast", #equal to AnswerArrayPHQ[7]
+        "speakingSlowORFast",  # equal to AnswerArrayPHQ[7]
         metavar='Moving/Speaking so slowly OR being restless that others have noticed?',
-        #'Moving or speaking so slowly that other people could have noticed? Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual',
+        # 'Moving or speaking so slowly that other people could have noticed?
+        # Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -87,7 +88,7 @@ def PHQ_QuestionsGUI():
     )
 
     hurtingOneself = allPHQ9Questions.add_argument(
-        "hurtingOneself", #equal to AnswerArrayPHQ[8]
+        "hurtingOneself",  # equal to AnswerArrayPHQ[8]
         metavar='Thoughts that you would be better off dead or of hurting yourself in some way',
         choices=["Not at all",
                  "Several days",
@@ -95,11 +96,11 @@ def PHQ_QuestionsGUI():
                  "Nearly every day"]
     )
 
-#GAD-7 (Modul of PHQ-D)
+    # GAD-7 (Module of PHQ-D)
     allGAD7Questions = parserGUI.add_argument_group('GAD-7 for Anxiety')
 
     feelingNervous = allGAD7Questions.add_argument(
-        "feelingNervous", #equal to AnswerArrayPHQ[0]
+        "feelingNervous",  # equal to AnswerArrayPHQ[0]
         metavar='Feeling nervous, anxious or on edge?',
         choices=["Not at all",
                  "Several days",
@@ -108,7 +109,7 @@ def PHQ_QuestionsGUI():
     )
 
     worrying = allGAD7Questions.add_argument(
-        "worrying", #equal to AnswerArrayPHQ[1]
+        "worrying",  # equal to AnswerArrayPHQ[1]
         metavar='Not being able to stop or control worrying?',
         choices=["Not at all",
                  "Several days",
@@ -161,12 +162,12 @@ def PHQ_QuestionsGUI():
                  "Nearly every day"]
     )
 
-#PHQ-Stress Modul (Modul of PHQ-D - from the questions 12a-12j)
+    # PHQ-Stress Module (Module of PHQ-D - from the questions 12a-12j)
 
-    allPHQStressQuestions = parserGUI.add_argument_group('PHQ-Stress Modul for Stress')
+    allPHQStressQuestions = parserGUI.add_argument_group('PHQ-Stress Module for Stress')
 
     worryAboutHealth = allPHQStressQuestions.add_argument(
-        "worryAboutHealth", #equal to AnswerArrayPHQ[0]
+        "worryAboutHealth",  # equal to AnswerArrayPHQ[0]
         metavar='Worry about your health',
         choices=["Not affected",
                  "Little affected",
@@ -174,7 +175,7 @@ def PHQ_QuestionsGUI():
     )
 
     weightOrAppearance = allPHQStressQuestions.add_argument(
-        "weightOrAppearance", #equal to AnswerArrayPHQ[1]
+        "weightOrAppearance",  # equal to AnswerArrayPHQ[1]
         metavar='Your weight or your appearance',
         choices=["Not affected",
                  "Little affected",
@@ -182,7 +183,7 @@ def PHQ_QuestionsGUI():
     )
 
     sexualDesire = allPHQStressQuestions.add_argument(
-        "sexualDesire", #equal to AnswerArrayPHQ[2]
+        "sexualDesire",  # equal to AnswerArrayPHQ[2]
         metavar='Little or no sexual desire or pleasure during intercourse',
         choices=["Not affected",
                  "Little affected",
@@ -190,7 +191,7 @@ def PHQ_QuestionsGUI():
     )
 
     difficultiesWithSO = allPHQStressQuestions.add_argument(
-        "difficultiesWithSO", #equal to AnswerArrayPHQ[3]
+        "difficultiesWithSO",  # equal to AnswerArrayPHQ[3]
         metavar='Difficulties with the spouse, significant other, girlfriend / boyfriend',
         choices=["Not affected",
                  "Little affected",
@@ -198,49 +199,50 @@ def PHQ_QuestionsGUI():
     )
 
     caregiverBurden = allPHQStressQuestions.add_argument(
-        "caregiverBurden", #equal to AnswerArrayPHQ[4]
+        "caregiverBurden",  # equal to AnswerArrayPHQ[4]
         metavar='Burden of caring for children, parents, or other family members',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
     )
 
-    stressAtWorkSchool= allPHQStressQuestions.add_argument(
-        "stressAtWorkSchool", #equal to AnswerArrayPHQ[5]
+    stressAtWorkSchool = allPHQStressQuestions.add_argument(
+        "stressAtWorkSchool",  # equal to AnswerArrayPHQ[5]
         metavar='Stress at work or at school',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
     )
 
-    financialProblems= allPHQStressQuestions.add_argument(
-        "financialProblems", #equal to AnswerArrayPHQ[6]
+    financialProblems = allPHQStressQuestions.add_argument(
+        "financialProblems",  # equal to AnswerArrayPHQ[6]
         metavar='Financial problems or concerns',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
     )
 
-    noTalkPartner= allPHQStressQuestions.add_argument(
-        "noTalkPartner", #equal to AnswerArrayPHQ[7]
+    noTalkPartner = allPHQStressQuestions.add_argument(
+        "noTalkPartner",  # equal to AnswerArrayPHQ[7]
         metavar='Not having someone to talk to about problems',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
     )
 
-    sthBadHappened= allPHQStressQuestions.add_argument(
-        "sthBadHappened", #equal to AnswerArrayPHQ[8]
+    sthBadHappened = allPHQStressQuestions.add_argument(
+        "sthBadHappened",  # equal to AnswerArrayPHQ[8]
         metavar='Something bad that happened recently',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
     )
 
-    thoughtsOrDreamsAboutTerribleEvents= allPHQStressQuestions.add_argument(
-        "thoughtsOrDreamsAboutTerribleEvents", #equal to AnswerArrayPHQ[9]
+    thoughtsOrDreamsAboutTerribleEvents = allPHQStressQuestions.add_argument(
+        "thoughtsOrDreamsAboutTerribleEvents",  # equal to AnswerArrayPHQ[9]
         metavar='Thoughts about terrible events from earlier or dreams about it',
-                #' - e.g. the destruction of your own home, a serious accident, a robbery, physical violence or a forced sexual act',
+        # ' - e.g. the destruction of your own home, a serious accident,
+        # a robbery, physical violence or a forced sexual act',
         choices=["Not affected",
                  "Little affected",
                  "Severely affected"]
@@ -255,7 +257,8 @@ def PHQ_QuestionsGUI():
         metavar='Are you in financial distress?',
         choices=["Yes, I am in financial distress",
                  "No, I am not in financial distress"]
-        # default="yes, I'm in financial distress" #If you want to have one of the values as a default value, re-comment this
+        # default="yes, I'm in financial distress"
+        # If you want to have one of the values as a default value, re-comment the line above
     )
 
     financialQuestionEmployment = allFinancialQuestions.add_argument(
@@ -393,7 +396,7 @@ def PHQ_QuestionsGUI():
                  'No, I cannot resolve this matter sensibly']
     )
 
-    #PHQ-9
+    # PHQ-9
     AnswerArrayGUI.append(parserGUI.parse_args().littleInterestInDoingThings)
     AnswerArrayGUI.append(parserGUI.parse_args().feelingDown)
     AnswerArrayGUI.append(parserGUI.parse_args().troubleSleeping)
@@ -404,7 +407,7 @@ def PHQ_QuestionsGUI():
     AnswerArrayGUI.append(parserGUI.parse_args().speakingSlowORFast)
     AnswerArrayGUI.append(parserGUI.parse_args().hurtingOneself)
 
-    # GAD-7 (Modul of PHQ-D)
+    # GAD-7 (Module of PHQ-D)
     AnswerArrayGUI.append(parserGUI.parse_args().feelingNervous)
     AnswerArrayGUI.append(parserGUI.parse_args().worrying)
     AnswerArrayGUI.append(parserGUI.parse_args().worryingTooMuch)
@@ -413,7 +416,7 @@ def PHQ_QuestionsGUI():
     AnswerArrayGUI.append(parserGUI.parse_args().annoyedOrIrritable)
     AnswerArrayGUI.append(parserGUI.parse_args().afraidAwfulHappening)
 
-    # PHQ Stress Modul (Modul of PHQ-D)
+    # PHQ Stress Module (Module of PHQ-D)
     AnswerArrayGUI.append(parserGUI.parse_args().worryAboutHealth)
     AnswerArrayGUI.append(parserGUI.parse_args().weightOrAppearance)
     AnswerArrayGUI.append(parserGUI.parse_args().sexualDesire)
@@ -425,7 +428,7 @@ def PHQ_QuestionsGUI():
     AnswerArrayGUI.append(parserGUI.parse_args().sthBadHappened)
     AnswerArrayGUI.append(parserGUI.parse_args().thoughtsOrDreamsAboutTerribleEvents)
 
-    #Financial Questions
+    # Financial Questions
     AnswerArrayGUI.append(parserGUI.parse_args().financialdistress)
     AnswerArrayGUI.append(parserGUI.parse_args().employment)
 

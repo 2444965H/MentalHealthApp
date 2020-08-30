@@ -11,25 +11,31 @@ import RecommendationsFinancial
 import RecommendationsLeisure
 import RecommendationsSocial
 
+
 class FinancialFact(Fact):
     """Info about the financial situation: Sub-attributes are "financialDistress" and "employment"."""
     pass
+
 
 class FamilyFact(Fact):
     """Info about the family situation: Sub-attributes are "financialDistress" and "employment"."""
     pass
 
+
 class LeisureFact(Fact):
     """Info about the leisure situation: Sub-attributes are "" and ""."""
     pass
+
 
 class SocialFact(Fact):
     """Info about the social situation: Sub-attributes are "" and ""."""
     pass
 
+
 class DASLevelFact(Fact):
     """Info about the depression/anxiety/stress: Sub-attributes are "depression","anxiety", and "stress". """
     pass
+
 
 maxIndValueOfDAS = 0
 maxIndValueOfDASFiveToNine = False
@@ -37,13 +43,14 @@ maxIndValueOfDASTenToFourteen = False
 maxIndValueOfDASFifteen = False
 individualStressLevel = 0
 
-#Knowledge Engine
+
+# Knowledge Engine
 class ContextualQuestions(KnowledgeEngine):
-#Financial Questions
+    # Financial Questions
     @Rule(FinancialFact(financialDistress='Yes, I am in financial distress'),
           FinancialFact(employment='Full-Time'))
     def financial_situation_1(self):
-    #Couple Contextual Questions with PHQ-level information
+        # Couple Contextual Questions with PHQ-level information
         # Coupled with Depression/Anxiety/Stress lvl= from 5 to 10
         if maxIndValueOfDASFiveToNine:
             print(RecommendationsFinancial.financial_advice_1)
@@ -75,7 +82,7 @@ class ContextualQuestions(KnowledgeEngine):
             print(RecommendationsFinancial.financial_advice_4 + RecommendationsFinancial.financial_advice_5)
 
     @Rule(FinancialFact(financialDistress='Yes, I am in financial distress'),
-          FinancialFact(employment='Otherwise occupied')) #Could be a student or else
+          FinancialFact(employment='Otherwise occupied'))  # Could be a student or else
     def financial_situation_3b(self):
         if maxIndValueOfDASFiveToNine:
             print(RecommendationsFinancial.financial_advice_1)
@@ -94,7 +101,7 @@ class ContextualQuestions(KnowledgeEngine):
         if maxIndValueOfDASFifteen:
             print(RecommendationsFinancial.financial_advice_cluster_3_5_6)
 
-#Family Questions
+    # Family Questions
     @Rule(FamilyFact(isCaretaker='Yes, I am a caregiver'),
           FamilyFact(getsEnoughSupport='Yes, I have enough support'))
     # isCaretaker=Yes & getsEnoughSupport=Yes
@@ -107,7 +114,8 @@ class ContextualQuestions(KnowledgeEngine):
     # isCaretaker=Yes & getsEnoughSupport=Yes & caringForAdults=Yes
     def family_situation_3(self):
         if maxIndValueOfDASFiveToNine:
-            print(RecommendationsCaregiver.caregiver_advice_1 + " https://www.sonashomehealth.com/elderly-care-tips-caregivers/")
+            print(RecommendationsCaregiver.caregiver_advice_1 +
+                  " https://www.sonashomehealth.com/elderly-care-tips-caregivers/")
         if maxIndValueOfDASTenToFourteen:
             print(RecommendationsCaregiver.caregiver_advice_cluster_1_2 +
                   " https://www.sonashomehealth.com/elderly-care-tips-caregivers/")
@@ -139,12 +147,13 @@ class ContextualQuestions(KnowledgeEngine):
         if maxIndValueOfDASFifteen:
             print(RecommendationsCaregiver.caregiver_advice_cluster_1_2_3_4)
 
-#Leisure Questions
+    # Leisure Questions
     @Rule(LeisureFact(enoughTimeForOneself='No, I did not have enough leisure time for myself'),
           LeisureFact(leisureTimePlanned='No, I did/am not planning to take off time for leisure'))
     # enoughTimeForOneself=no & leisureTimePlanned=no
     def leisure_situation_1(self):
-        print(RecommendationsLeisure.leisure_advice_1) #To prevent any DAS level BEFORE they occur, trigger whenever Rule=true
+        print(RecommendationsLeisure.leisure_advice_1)
+        # To prevent any DAS level BEFORE they occur, trigger whenever Rule=true
 
     @Rule(LeisureFact(enoughTimeForOneself='No, I did not have enough leisure time for myself'),
           LeisureFact(leisureTimePlanned='Yes, I planned/am planning to take off time for leisure'),
@@ -170,14 +179,14 @@ class ContextualQuestions(KnowledgeEngine):
         if maxIndValueOfDASFifteen:
             print(RecommendationsLeisure.leisure_advice_cluster_2_3_4)
 
-#Social Questions: Only dependent on Stress Level, not depending on Depression or Anxiety Level
-    #Question 1: Did you participate in any social activities?
+    # Social Questions: Only dependent on Stress Level, not depending on Depression or Anxiety Level
+    # Question 1: Did you participate in any social activities?
     @Rule(SocialFact(anySocialActivities='No, I did not participate in any social activity'),
           SocialFact(missedOutDueExternalFactors='Yes, I did miss social activities due to external factors'),
           SocialFact(alternativeMeeting='Yes, we did seek out alternatives to meet'))
     # anySocialActivities=no & missedOutDueExternalFactors=yes & alternativeMeeting=yes
     def social_situation_1(self):
-        if individualStressLevel >=5:
+        if individualStressLevel >= 5:
             print(RecommendationsSocial.social_advice_1)
 
     @Rule(SocialFact(anySocialActivities='No, I did not participate in any social activity'),
@@ -185,7 +194,7 @@ class ContextualQuestions(KnowledgeEngine):
           SocialFact(alternativeMeeting='No, we did not seek out alternatives to meet'))
     # anySocialActivities=no & missedOutDueExternalFactors=yes & alternativeMeeting=no
     def social_situation_2(self):
-        if individualStressLevel >=5:
+        if individualStressLevel >= 5:
             print(RecommendationsSocial.social_advice_2)
 
     @Rule(SocialFact(anySocialActivities='No, I did not participate in any social activity'),
@@ -193,11 +202,11 @@ class ContextualQuestions(KnowledgeEngine):
           SocialFact(stayedOut='Yes, I cancelled/stayed out of social meetings'))
     # anySocialActivities=no & missedOutDueExternalFactors=no & stayedOut=yes
     def social_situation_3(self):
-        if individualStressLevel >=5 and individualStressLevel <10:
+        if 5 <= individualStressLevel < 10:
             print(RecommendationsSocial.social_advice_3)
-        if individualStressLevel >=10 and individualStressLevel <15:
+        if 10 <= individualStressLevel < 15:
             print(RecommendationsSocial.social_advice_cluster_3_4)
-        if individualStressLevel >=15:
+        if individualStressLevel >= 15:
             print(RecommendationsSocial.social_advice_cluster_3_4_5)
 
     @Rule(SocialFact(anySocialActivities='No, I did not participate in any social activity'),
@@ -205,16 +214,16 @@ class ContextualQuestions(KnowledgeEngine):
           SocialFact(stayedOut='No, I did not cancel/stayed out of social meetings'))
     # anySocialActivities=no & missedOutDueExternalFactors=no & stayedOut=no
     def social_situation_4(self):
-        if individualStressLevel >=5:
+        if individualStressLevel >= 5:
             print(RecommendationsSocial.social_advice_cluster_3_6)
 
-    #Question 2: Did you have any negative  social exchanges?
+    # Question 2: Did you have any negative  social exchanges?
     @Rule(SocialFact(negativeSocialExchanges='Yes, I had negative social exchanges'),
           SocialFact(resolved='Yes, I resolved the negative social exchange(s)'),
           SocialFact(futureStrategy='No, I do not have a strategy for negative social exchanges'))
     # negativeSocialExchanges=yes & resolved=yes & futureStrategy=no
     def social_situation_5(self):
-        if individualStressLevel >=5:
+        if individualStressLevel >= 5:
             print(RecommendationsSocial.social_advice_7)
 
     @Rule(SocialFact(negativeSocialExchanges='Yes, I had negative social exchanges'),
@@ -222,7 +231,7 @@ class ContextualQuestions(KnowledgeEngine):
           SocialFact(sensibleResolvePossible='Yes, I can resolve this matter sensibly'))
     # negativeSocialExchanges=yes & resolved=no & sensibleResolvePossible=yes
     def social_situation_6(self):
-        if individualStressLevel >=5:
+        if individualStressLevel >= 5:
             print(RecommendationsSocial.social_advice_8)
 
     @Rule(SocialFact(negativeSocialExchanges='Yes, I had negative social exchanges'),
@@ -230,5 +239,5 @@ class ContextualQuestions(KnowledgeEngine):
           SocialFact(sensibleResolvePossible='No, I cannot resolve this matter sensibly'))
     # negativeSocialExchanges=yes & resolved=no & sensibleResolvePossible=no
     def social_situation_7(self):
-        if individualStressLevel >=5:
+        if individualStressLevel >= 5:
             print(RecommendationsSocial.social_advice_9)

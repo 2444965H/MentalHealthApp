@@ -1,18 +1,16 @@
 from tinydb import TinyDB, Query
 
-#Create path
-import SeverityAlgorithm
-from KnowledgeEngine import individualStressLevel
-
+# Create path
 db = TinyDB('db.json')
 DBQuery = Query()
 
+
 def insertInDB(InputArray):
     dbArray = []
-    dbArray = InputArray #database array is filled with the input given from Parser.py
-    #db.upsert: If there are already values, then update db - otherwise insert the new value in empty db.
+    dbArray = InputArray  # database array is filled with the input given from Parser.py
+    # db.upsert: If there are already values, then update db - otherwise insert the new value in empty db.
     db.upsert({'ID': dbArray[0], 'individualDepressionLevel': dbArray[1],
-               'individualAnxietyLevel': dbArray[2], 'individualStressLevel':dbArray[3],
+               'individualAnxietyLevel': dbArray[2], 'individualStressLevel': dbArray[3],
                'financialdistress': dbArray[4], 'employment': dbArray[5], 'isCaretaker': dbArray[6],
                'getsEnoughSupport': dbArray[7], 'caringForAdults': dbArray[8],
                'caringForU18Children': dbArray[9], 'caringForDisabledChildren': dbArray[10],
@@ -23,20 +21,22 @@ def insertInDB(InputArray):
                'resolved': dbArray[19], 'futureStrategy': dbArray[20],
                'sensibleResolvePossible': dbArray[21], 'maxIndValueOfDAS': dbArray[22]}, DBQuery.ID == dbArray[0])
 
-    #print(len(db))
-    #dbOldArray = db.get(DBQuery.ID == dbArray[0])
+    # print(len(db))
+    # dbOldArray = db.get(DBQuery.ID == dbArray[0])
     print("New Entry has been entered, old entry has been overwritten")
     print(db.get(DBQuery.ID == dbArray[0]))
-    #return dbOldArray
+    # return dbOldArray
 
-#Called in Parser.py
-def checkExistence(Username):
-    dbExistence= db.get(DBQuery.ID == Username)
+
+# Called in Parser.py
+def checkExistence(username):
+    dbExistence = db.get(DBQuery.ID == username)
     return dbExistence
 
-def readFromDB(Username):
+
+def readFromDB(username):
     dbOldEntry = []
-    dbOldQuery = db.get(DBQuery.ID == Username)
+    dbOldQuery = db.get(DBQuery.ID == username)
     dbOldEntry.append(dbOldQuery['ID'])
     dbOldEntry.append(dbOldQuery['individualDepressionLevel'])
     dbOldEntry.append(dbOldQuery['individualAnxietyLevel'])
@@ -85,4 +85,3 @@ def readFromDB(Username):
 # resolved
 # futureStrategy
 # sensibleResolvePossible
-

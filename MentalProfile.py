@@ -4,9 +4,10 @@ the Inference Engine should be triggered, if the DAS-level reaches a trigger-poi
 """
 import SeverityAlgorithm
 
+
 class Profile:
-    def calculateProfile(self,depressionValueIR,anxietyValueIR,stressValueIR):
-        #IndividualContextualSituation = ContextualQuestionAlgorithm.ContextualCheck()
+    def calculateProfile(self, depressionValueIR, anxietyValueIR, stressValueIR):
+        # IndividualContextualSituation = ContextualQuestionAlgorithm.ContextualCheck()
         individualDepressionLevel = SeverityAlgorithm.Depression(depressionValueIR)
         individualAnxietyLevel = SeverityAlgorithm.Anxiety(anxietyValueIR)
         individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
@@ -17,18 +18,18 @@ class Profile:
         print(IndividualDASArray)
         return IndividualDASArray
 
-    def calculateDepressionLevel(self,depressionValueIR):
+    def calculateDepressionLevel(self, depressionValueIR):
         individualDepressionLevel = SeverityAlgorithm.Depression(depressionValueIR)
         return individualDepressionLevel
 
-    def calculateAnxietyLevel(self,anxietyValueIR):
+    def calculateAnxietyLevel(self, anxietyValueIR):
         individualAnxietyLevel = SeverityAlgorithm.Anxiety(anxietyValueIR)
         return individualAnxietyLevel
 
-    def calculateStressLevel(self,stressValueIR):
+    def calculateStressLevel(self, stressValueIR):
         individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
         return individualStressLevel
 
-#testInstance = Profile()
-#print(Profile.IndividualDASArray)
+# testInstance = Profile()
+# print(Profile.IndividualDASArray)
 # Profile().financial_advice()

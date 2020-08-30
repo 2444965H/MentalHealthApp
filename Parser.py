@@ -10,7 +10,9 @@ import KnowledgeEngine
 import KnowledgeEngineTwo
 import database
 
-AnswerArrayCP = ParserGUI.PHQ_QuestionsGUI() # THe complete(CP) user answers are transferred from GUI to answer array
+AnswerArrayCP = ParserGUI.questionsForGUI_PHQ()
+# THe complete(CP) user answers are transferred from GUI to answer array
+
 
 # If you want to print out the information of the Contextual Questions including its answers, uncomment the next 3 lines
 # print("Selected answers:")
@@ -19,55 +21,64 @@ AnswerArrayCP = ParserGUI.PHQ_QuestionsGUI() # THe complete(CP) user answers are
 
 class DepressionIR:
     DepressionArray = []
-    for x in range(0,9):
+    for x in range(0, 9):
         DepressionArray.append(AnswerArrayCP[x])
-    #print("Value of Depression Array: ") #Uncomment this & next line to check, if output is correct
-    #print(DepressionArray)
+    # print("Value of Depression Array: ") #Uncomment this & next line to check, if output is correct
+    # print(DepressionArray)
+
 
 class AnxietyIR:
     AnxietyArray = []
-    for x in range(9,16):
+    for x in range(9, 16):
         AnxietyArray.append(AnswerArrayCP[x])
-    #print("Value of Anxiety Array: ") #Uncomment this & next line to check, if output is correct
-    #print(AnxietyArray)
+    # print("Value of Anxiety Array: ") #Uncomment this & next line to check, if output is correct
+    # print(AnxietyArray)
+
 
 class StressIR:
     StressArray = []
-    for x in range (16,26):
+    for x in range(16, 26):
         StressArray.append(AnswerArrayCP[x])
-    #print("Value of Stress Array: ") #Uncomment this & next line to check, if output is correct
-    #print(StressArray)
+    # print("Value of Stress Array: ") #Uncomment this & next line to check, if output is correct
+    # print(StressArray)
 
     # AnswerArray = []
+
+
 print("Selected answers:")
 for x in range(26, 43):
     print("- " + AnswerArrayCP[x])
-#declareAnswerArry[x+1]
+# declareAnswerArray[x+1]
 
-#Calculate Mental-Profile - Depression, Anxiety and Stress (DAS) as well as the xxxx are instantiated here
-individualDepressionLevel = MentalProfile.Profile.calculateDepressionLevel(MentalProfile.Profile,DepressionIR.DepressionArray)
-individualAnxietyLevel = MentalProfile.Profile.calculateAnxietyLevel(MentalProfile.Profile,AnxietyIR.AnxietyArray)
-individualStressLevel = MentalProfile.Profile.calculateStressLevel(MentalProfile.Profile,StressIR.StressArray)
-maxIndValueOfDAS = max(MentalProfile.Profile.calculateProfile(MentalProfile.Profile,DepressionIR.DepressionArray,AnxietyIR.AnxietyArray,StressIR.StressArray))
+# Calculate Mental-Profile - Depression, Anxiety and Stress (DAS) as well as the maxIndValueOfDAS are instantiated here
+individualDepressionLevel = MentalProfile.Profile.calculateDepressionLevel(MentalProfile.Profile,
+                                                                           DepressionIR.DepressionArray)
+individualAnxietyLevel = MentalProfile.Profile.calculateAnxietyLevel(MentalProfile.Profile, AnxietyIR.AnxietyArray)
+individualStressLevel = MentalProfile.Profile.calculateStressLevel(MentalProfile.Profile, StressIR.StressArray)
+maxIndValueOfDAS = max(
+    MentalProfile.Profile.calculateProfile(MentalProfile.Profile, DepressionIR.DepressionArray, AnxietyIR.AnxietyArray,
+                                           StressIR.StressArray))
 # print("MaxValue:") #Uncomment this & next line to check, if output is correct
 # print(maxIndValueOfDAS)
 
-KnowledgeEngine.maxIndValueOfDASFiveToNine = (maxIndValueOfDAS >=5 and maxIndValueOfDAS <10) #If the highest DAS value is from 5-9
-KnowledgeEngine.maxIndValueOfDASTenToFourteen = (maxIndValueOfDAS >=10 and maxIndValueOfDAS<15) #If the highest DAS value is from 10-14
-KnowledgeEngine.maxIndValueOfDASFifteen = (maxIndValueOfDAS >=15)
+KnowledgeEngine.maxIndValueOfDASFiveToNine = (
+        5 <= maxIndValueOfDAS < 10)  # If the highest DAS value is from 5-9
+KnowledgeEngine.maxIndValueOfDASTenToFourteen = (
+        10 <= maxIndValueOfDAS < 15)  # If the highest DAS value is from 10-14
+KnowledgeEngine.maxIndValueOfDASFifteen = (maxIndValueOfDAS >= 15)
 KnowledgeEngine.maxIndValueOfDAS = maxIndValueOfDAS
 KnowledgeEngine.individualStressLevel = individualStressLevel
 
-#Start Knowledge-Engine
+# Start Knowledge-Engine
 engine = KnowledgeEngine.ContextualQuestions()
 engine.reset()  # Prepare the engine for the execution.
 
 # Declaring Financial Facts
-engine.declare(KnowledgeEngine.FinancialFact(financialDistress=AnswerArrayCP[26]))  # GUIINPUT instead of hardcode
-engine.declare(KnowledgeEngine.FinancialFact(employment=AnswerArrayCP[27]))  # GUIINPUT instead of hardcode
+engine.declare(KnowledgeEngine.FinancialFact(financialDistress=AnswerArrayCP[26]))  # GUI INPUT instead of hardcode
+engine.declare(KnowledgeEngine.FinancialFact(employment=AnswerArrayCP[27]))  # GUI INPUT instead of hardcode
 
 # Declaring Family Facts
-engine.declare(KnowledgeEngine.FamilyFact(isCaretaker=AnswerArrayCP[28]))  # GUIINPUT instead of hardcode
+engine.declare(KnowledgeEngine.FamilyFact(isCaretaker=AnswerArrayCP[28]))  # GUI INPUT instead of hardcode
 engine.declare(KnowledgeEngine.FamilyFact(getsEnoughSupport=AnswerArrayCP[29]))
 engine.declare(KnowledgeEngine.FamilyFact(caringForAdults=AnswerArrayCP[30]))
 engine.declare(KnowledgeEngine.FamilyFact(caringForU18Children=AnswerArrayCP[31]))
@@ -88,7 +99,7 @@ engine.declare(KnowledgeEngine.SocialFact(resolved=AnswerArrayCP[41]))
 engine.declare(KnowledgeEngine.SocialFact(futureStrategy=AnswerArrayCP[42]))
 engine.declare(KnowledgeEngine.SocialFact(sensibleResolvePossible=AnswerArrayCP[43]))
 
-engine.run()  # Executes & runs it
+engine.run()  # Executes first engine with the questionnaire and contextual questions & runs it
 
 InputArray = []
 Username = "Username"
@@ -96,18 +107,17 @@ InputArray.append(Username)
 InputArray.append(individualDepressionLevel)
 InputArray.append(individualAnxietyLevel)
 InputArray.append(individualStressLevel)
-for x in range(26,44):
+for x in range(26, 44):
     InputArray.append(AnswerArrayCP[x])
 InputArray.append(maxIndValueOfDAS)
-###### If this is the first execution, do not compare "Old" values with "new" ones ####
+# If this is the first execution, do not compare "Old" values with "new" ones
 if database.checkExistence(Username) is None:
     print("No previous data found")
 else:
     dbOldFactsArray = []
-    dbOldFactsArray = database.readFromDB(Username) #is this really an array
+    dbOldFactsArray = database.readFromDB(Username)  # is this really an array
 
-
-    #Start Knowledge-Engine
+    # Start Knowledge-Engine
     engineTwo = KnowledgeEngineTwo.ComparingOldInputWithNew()
     engineTwo.reset()  # Prepare the engine for the execution.
 
@@ -131,8 +141,7 @@ else:
     engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(futureStrategy=AnswerArrayCP[42]))
     engineTwo.declare(KnowledgeEngineTwo.NewSocialFact(sensibleResolvePossible=AnswerArrayCP[43]))
 
-
-    #EngineTwo Declare Old Facts with dbOldFacts Array
+    # EngineTwo Declare Old Facts with dbOldFacts Array
     engineTwo.declare(KnowledgeEngineTwo.OldFinancialFact(financialDistress=dbOldFactsArray[4]))
     engineTwo.declare(KnowledgeEngineTwo.OldFinancialFact(employment=dbOldFactsArray[5]))
     engineTwo.declare(KnowledgeEngineTwo.OldFamilyFact(isCaretaker=dbOldFactsArray[6]))
@@ -152,7 +161,7 @@ else:
     engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(futureStrategy=dbOldFactsArray[20]))
     engineTwo.declare(KnowledgeEngineTwo.OldSocialFact(sensibleResolvePossible=dbOldFactsArray[21]))
 
-    #Add Comparison Values
+    # Add Comparison Values
     if maxIndValueOfDAS > dbOldFactsArray[22]:
         engineTwo.declare(KnowledgeEngineTwo.DASLevelFact(higherThanBefore='Yes'))
     elif maxIndValueOfDAS < dbOldFactsArray[22]:
@@ -172,5 +181,5 @@ else:
     elif individualStressLevel < dbOldFactsArray[3]:
         engineTwo.declare(KnowledgeEngineTwo.DASLevelFact(lowerStress='Yes'))
 
-    engineTwo.run() # Executes & runs it
+    engineTwo.run()  # Executes & runs it
 database.insertInDB(InputArray)

@@ -7,10 +7,11 @@ MentalProfile.py
 For Debugging: QuestionArray can be uncommented in Parser.py to see the PHQ-Questions and respective answers
 """
 
+
 class NumericalDepressionArray:
-    def calculateDepression(self,depressionValueIR):
-        #Overwrite DepressionArray from Parser.DepressionIR from string to int values
-        DepressionArray = depressionValueIR #DepressionIR.DepressionArray
+    def calculateDepression(self, depressionValueIR):
+        # Overwrite DepressionArray from Parser.DepressionIR from string to int values
+        DepressionArray = depressionValueIR  # DepressionIR.DepressionArray
         for i in range(len(DepressionArray)):
             if DepressionArray[i] == "Not at all":
                 DepressionArray[i] = 0
@@ -24,10 +25,11 @@ class NumericalDepressionArray:
         print(DepressionArray)
         return DepressionArray
 
+
 class NumericalAnxietyArray:
-    def calculateAnxiety(self,anxietyValueIR):
-        #Overwrite AnxietyArray from Parser.AnxietyIR from string to int values
-        AnxietyArray = anxietyValueIR #AnxietyIR.AnxietyArray
+    def calculateAnxiety(self, anxietyValueIR):
+        # Overwrite AnxietyArray from Parser.AnxietyIR from string to int values
+        AnxietyArray = anxietyValueIR  # AnxietyIR.AnxietyArray
         for i in range(len(AnxietyArray)):
             if AnxietyArray[i] == "Not at all":
                 AnxietyArray[i] = 0
@@ -41,9 +43,10 @@ class NumericalAnxietyArray:
         print(AnxietyArray)
         return AnxietyArray
 
+
 class NumericalStressArray:
-    def calculateStress(self,stressValueIR):
-        #Overwrite StressArray from Parser.StressIR string to int values
+    def calculateStress(self, stressValueIR):
+        # Overwrite StressArray from Parser.StressIR string to int values
         StressArray = stressValueIR
         for i in range(len(StressArray)):
             if StressArray[i] == "Not affected":
@@ -56,11 +59,12 @@ class NumericalStressArray:
         print(StressArray)
         return StressArray
 
+
 # Question Array is used in Parser.py, when we want to see the corresponding answers to the questions below
 QuestionArray = ["Little interest or pleasure in doing things?",
                  'Feeling down, depressed, or hopeless?',
                  'Trouble falling or staying asleep, or sleeping too much',
-                 'Feeling tired or having little energy','Poor apppetite or overeating',
+                 'Feeling tired or having little energy', 'Poor appetite or overeating',
                  'Feeling bad about yourself - or that you are a failure or have let yourself or your family down',
                  'Trouble concentrating on things, such as reading the newspaper or watching television',
                  'Moving/Speaking so slowly OR being restless that others have noticed?',
@@ -72,7 +76,7 @@ QuestionArray = ["Little interest or pleasure in doing things?",
                  'Being so restless that it is hard to sit still?',
                  'Becoming easily annoyed or irritable?',
                  'Feeling afraid as if something awful might happen?',
-                 'Worry about your health','Your weight or your appearance',
+                 'Worry about your health', 'Your weight or your appearance',
                  'Little or no sexual desire or pleasure during intercourse',
                  'Difficulties with the spouse, significant other, girlfriend / boyfriend',
                  'Burden of caring for children, parents, or other family members',
