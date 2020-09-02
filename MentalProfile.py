@@ -13,19 +13,31 @@ class Profile:
         individualStressLevel = SeverityAlgorithm.stress(stressValueIR)
 
         IndividualDASArray = []
-        IndividualDASArray = individualDepressionLevel, individualAnxietyLevel, individualStressLevel
+        IndividualDASArray = individualDepressionLevel[0], individualAnxietyLevel[0], individualStressLevel[0]
         print("Individual's depression, anxiety, and stress value in that particular order: ")
         print(IndividualDASArray)
         return IndividualDASArray
 
     def calculateDepressionLevel(self, depressionValueIR):
         individualDepressionLevel = SeverityAlgorithm.depression(depressionValueIR)
-        return individualDepressionLevel
+        print("Depression Array")
+        print(individualDepressionLevel[1])
+        print("Depression Value")
+        print(individualDepressionLevel[0])
+        return individualDepressionLevel[0]
 
     def calculateAnxietyLevel(self, anxietyValueIR):
         individualAnxietyLevel = SeverityAlgorithm.anxiety(anxietyValueIR)
-        return individualAnxietyLevel
+        print("Anxiety Array")
+        print(individualAnxietyLevel[1])
+        print("Anxiety Value")
+        print(individualAnxietyLevel[0])
+        return individualAnxietyLevel[0]
 
     def calculateStressLevel(self, stressValueIR):
         individualStressLevel = SeverityAlgorithm.stress(stressValueIR)
-        return individualStressLevel
+        print("Stress Array")
+        print(individualStressLevel[1])
+        print("Stress Value")
+        print(individualStressLevel[0])
+        return individualStressLevel[0]
