@@ -22,10 +22,10 @@ leisure_advice_4 \
 # the coder would have to work on the cluster, its sub-clusters, it sub-sub-clusters, and so on - which is not feasible
 
 leisure_advice_cluster_2_3 \
-    = leisure_advice_2 + leisure_advice_3
+    = leisure_advice_2 + leisure_advice_3 + "\n"
 
 leisure_advice_cluster_3_4 \
-    = leisure_advice_3 + leisure_advice_4
+    = leisure_advice_3 + leisure_advice_4 + "\n"
 
 leisure_advice_cluster_2_3_4 \
-    = leisure_advice_2 + leisure_advice_3 + leisure_advice_4
+    = leisure_advice_2 + leisure_advice_3 + leisure_advice_4 + "\n"

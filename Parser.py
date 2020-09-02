@@ -42,7 +42,7 @@ class StressIR:
     # print(StressArray)
 
 
-print("Selected answers:")
+print("\n Selected answers:")
 for x in range(26, 43):
     print("- " + AnswerArrayCP[x])
 

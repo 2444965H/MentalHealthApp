@@ -27,16 +27,16 @@ caregiver_advice_5 \
 # the coder would have to work on the cluster, its sub-clusters, it sub-sub-clusters, and so on - which is not feasible
 
 caregiver_advice_cluster_1_2 \
-    = caregiver_advice_1 + caregiver_advice_2
+    = caregiver_advice_1 + caregiver_advice_2 + "\n"
 
 caregiver_advice_cluster_3_4 \
-    = caregiver_advice_3 + caregiver_advice_4
+    = caregiver_advice_3 + caregiver_advice_4 + "\n"
 
 caregiver_advice_cluster_2_5 \
-    = caregiver_advice_2 + caregiver_advice_5
+    = caregiver_advice_2 + caregiver_advice_5 + "\n"
 
 caregiver_advice_cluster_1_2_3 \
-    = caregiver_advice_1 + caregiver_advice_2 + caregiver_advice_3
+    = caregiver_advice_1 + caregiver_advice_2 + caregiver_advice_3 + "\n"
 
 caregiver_advice_cluster_1_2_3_4 \
-    = caregiver_advice_1 + caregiver_advice_2 + caregiver_advice_3 + caregiver_advice_4
+    = caregiver_advice_1 + caregiver_advice_2 + caregiver_advice_3 + caregiver_advice_4 + "\n"

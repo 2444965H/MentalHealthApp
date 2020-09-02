@@ -38,10 +38,10 @@ social_advice_9 \
 # the coder would have to work on the cluster, its sub-clusters, it sub-sub-clusters, and so on - which is not feasible
 
 social_advice_cluster_3_4 \
-    = social_advice_3 + social_advice_4
+    = social_advice_3 + social_advice_4 + "\n"
 
 social_advice_cluster_3_6 \
-    = social_advice_3 + social_advice_6
+    = social_advice_3 + social_advice_6 + "\n"
 
 social_advice_cluster_3_4_5 \
-    = social_advice_3 + social_advice_4 + social_advice_5
+    = social_advice_3 + social_advice_4 + social_advice_5 + "\n"

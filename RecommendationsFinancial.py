@@ -31,22 +31,22 @@ financial_advice_6 \
 # Bigger clusters of advices could have sub-clusters as part of them - however, any subsequent changes would mean that
 # the coder would have to work on the cluster, its sub-clusters, it sub-sub-clusters, and so on - which is not feasible
 financial_advice_cluster_1_2_4_5 \
-    = financial_advice_1 + financial_advice_2 + financial_advice_4 + financial_advice_5
+    = financial_advice_1 + financial_advice_2 + financial_advice_4 + financial_advice_5 + "\n"
 
 financial_advice_cluster_1_3_5_6 \
-    = financial_advice_1 + financial_advice_3 + financial_advice_5 + financial_advice_6
+    = financial_advice_1 + financial_advice_3 + financial_advice_5 + financial_advice_6 + "\n"
 
 financial_advice_cluster_2_3_4_5 \
-    = financial_advice_2 + financial_advice_3 + financial_advice_4 + financial_advice_5
+    = financial_advice_2 + financial_advice_3 + financial_advice_4 + financial_advice_5 + "\n"
 
 financial_advice_cluster_3_4_5 \
-    = financial_advice_3 + financial_advice_4 + financial_advice_5
+    = financial_advice_3 + financial_advice_4 + financial_advice_5 + "\n"
 
 financial_advice_cluster_3_5_6 \
-    = financial_advice_3 + financial_advice_5 + financial_advice_6
+    = financial_advice_3 + financial_advice_5 + financial_advice_6 + "\n"
 
 financial_advice_cluster_2_3_5 \
-    = financial_advice_2 + financial_advice_3 + financial_advice_5
+    = financial_advice_2 + financial_advice_3 + financial_advice_5 + "\n"
 
 financial_advice_cluster_4_5 \
     = financial_advice_4 + financial_advice_5
