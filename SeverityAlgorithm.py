@@ -11,8 +11,8 @@ def depression(depression_value):
     # NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1)
     sum_of_depression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray, depression_value))
     # sum(NumericalDepressionArray.DepressionArray)
-    print("Depression Value: ")
-    print(sum_of_depression)
+    # print("Depression Value: ") #uncomment this if you want to see the array of values saved for the depression value
+    # print(sum_of_depression) #uncomment this if you want to see the array of values saved for the depression value
     # print('Degree and Value of Depression is ',sum_of_depression)
     if sum_of_depression <= 4:
         # print('minimal depressive symptoms')
@@ -37,8 +37,8 @@ def depression(depression_value):
 def anxiety(anxiety_value):
     sum_of_anxiety = sum(NumericalAnxietyArray.calculateAnxiety(NumericalAnxietyArray, anxiety_value))
     #  #print('Degree and Value of Anxiety is ',sum_of_anxiety)
-    print("Anxiety Value: ")
-    print(sum_of_anxiety)
+    # print("Anxiety Value: ") #uncomment this if you want to see the array of values saved for the anxiety value
+    # print(sum_of_anxiety) #uncomment this if you want to see the array of values saved for the anxiety value
     if sum_of_anxiety <= 4:
         # print('minimal anxiety symptoms')
         return sum_of_anxiety
@@ -62,8 +62,8 @@ def anxiety(anxiety_value):
 def stress(stress_value):
     sum_of_stress = sum(NumericalStressArray.calculateStress(NumericalStressArray, stress_value))
     # print('Degree and Value of Stress is ', sumOfStress)
-    print("Stress Value: ")
-    print(sum_of_stress)
+    # print("Stress Value: ") #uncomment this if you want to see the array of values saved for the stress value
+    # print(sum_of_stress) #uncomment this if you want to see the array of values saved for the stress value
     if sum_of_stress <= 4:
         # print('minimally distinct psychosocial stress factors')
         return sum_of_stress

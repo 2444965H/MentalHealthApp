@@ -21,8 +21,8 @@ class NumericalDepressionArray:
                 DepressionArray[i] = 2
             if DepressionArray[i] == "Nearly every day":
                 DepressionArray[i] = 3
-        print("Depression Array Values: ")
-        print(DepressionArray)
+        #print("Depression Array Values: ")
+        #print(DepressionArray)
         return DepressionArray
 
 
@@ -39,8 +39,8 @@ class NumericalAnxietyArray:
                 AnxietyArray[i] = 2
             if AnxietyArray[i] == "Nearly every day":
                 AnxietyArray[i] = 3
-        print("Anxiety Array Values: ")
-        print(AnxietyArray)
+        #print("Anxiety Array Values: ")
+        #print(AnxietyArray)
         return AnxietyArray
 
 
@@ -55,8 +55,8 @@ class NumericalStressArray:
                 StressArray[i] = 1
             if StressArray[i] == "Severely affected":
                 StressArray[i] = 2
-        print("Stress Array Values: ")
-        print(StressArray)
+        #print("Stress Array Values: ")
+        #print(StressArray)
         return StressArray
 
 

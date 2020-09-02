@@ -14,7 +14,7 @@ class Profile:
 
         IndividualDASArray = []
         IndividualDASArray = individualDepressionLevel, individualAnxietyLevel, individualStressLevel
-        print("IndividualDASArray")
+        print("Individual's depression, anxiety, and stress value in that particular order: ")
         print(IndividualDASArray)
         return IndividualDASArray
 
@@ -29,7 +29,3 @@ class Profile:
     def calculateStressLevel(self, stressValueIR):
         individualStressLevel = SeverityAlgorithm.stress(stressValueIR)
         return individualStressLevel
-
-# testInstance = Profile()
-# print(Profile.IndividualDASArray)
-# Profile().financial_advice()
