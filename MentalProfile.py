@@ -8,9 +8,9 @@ import SeverityAlgorithm
 class Profile:
     def calculateProfile(self, depressionValueIR, anxietyValueIR, stressValueIR):
         # IndividualContextualSituation = ContextualQuestionAlgorithm.ContextualCheck()
-        individualDepressionLevel = SeverityAlgorithm.Depression(depressionValueIR)
-        individualAnxietyLevel = SeverityAlgorithm.Anxiety(anxietyValueIR)
-        individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
+        individualDepressionLevel = SeverityAlgorithm.depression(depressionValueIR)
+        individualAnxietyLevel = SeverityAlgorithm.anxiety(anxietyValueIR)
+        individualStressLevel = SeverityAlgorithm.stress(stressValueIR)
 
         IndividualDASArray = []
         IndividualDASArray = individualDepressionLevel, individualAnxietyLevel, individualStressLevel
@@ -19,15 +19,15 @@ class Profile:
         return IndividualDASArray
 
     def calculateDepressionLevel(self, depressionValueIR):
-        individualDepressionLevel = SeverityAlgorithm.Depression(depressionValueIR)
+        individualDepressionLevel = SeverityAlgorithm.depression(depressionValueIR)
         return individualDepressionLevel
 
     def calculateAnxietyLevel(self, anxietyValueIR):
-        individualAnxietyLevel = SeverityAlgorithm.Anxiety(anxietyValueIR)
+        individualAnxietyLevel = SeverityAlgorithm.anxiety(anxietyValueIR)
         return individualAnxietyLevel
 
     def calculateStressLevel(self, stressValueIR):
-        individualStressLevel = SeverityAlgorithm.Stress(stressValueIR)
+        individualStressLevel = SeverityAlgorithm.stress(stressValueIR)
         return individualStressLevel
 
 # testInstance = Profile()

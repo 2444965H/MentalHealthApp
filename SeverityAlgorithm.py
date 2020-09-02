@@ -3,73 +3,81 @@
 - It takes the values from the arrays created in IRProcessor.py and adds them up for each DAS respectively.
 - These DAS values are needed for the MentalProfile.py
 """
-
 from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, NumericalStressArray
 
 
-# Sum of values out of 9 questions - value range: 0-3
-def Depression(depressionValueIR):
+# Sum of values out of 9 questions - value range for each question: 0-3
+def depression(depression_value):
     # NumericalDepressionArray.calculateDepression(NumericalDepressionArray,arg1)
-    sumOfDepression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray, depressionValueIR))
+    sum_of_depression = sum(NumericalDepressionArray.calculateDepression(NumericalDepressionArray, depression_value))
     # sum(NumericalDepressionArray.DepressionArray)
     print("Depression Value: ")
-    print(sumOfDepression)
-    # print('Degree and Value of Depression is ',sumOfDepression)
-    if sumOfDepression <= 4:
+    print(sum_of_depression)
+    # print('Degree and Value of Depression is ',sum_of_depression)
+    if sum_of_depression <= 4:
         # print('minimal depressive symptoms')
-        return sumOfDepression
-    if 5 <= sumOfDepression < 10:  # equivalent to: if (sumOfDepression >= 5) and (sumOfDepression <= 9):
+        return sum_of_depression
+    if 5 <= sum_of_depression < 10:
+        # equivalent to: if (sum_of_depression >= 5) and (sum_of_depression <= 9):
         # print('mildly depressive symptoms')
-        return sumOfDepression
-    if 10 <= sumOfDepression < 15: # equivalent to: if (sumOfDepression >= 10) and (sumOfDepression <= 14):
+        return sum_of_depression
+    if 10 <= sum_of_depression < 15:
+        # equivalent to: if (sum_of_depression >= 10) and (sum_of_depression <= 14):
         # print('moderate depressive symptoms')
-        return sumOfDepression
-    if 15 <= sumOfDepression < 28: # equivalent to: if (sumOfDepression >= 15) and (sumOfDepression <= 27):
+        return sum_of_depression
+    if 15 <= sum_of_depression < 28:
+        # equivalent to: if (sum_of_depression >= 15) and (sum_of_depression <= 27):
         # print('severe depressive symptoms')
-        return sumOfDepression
+        return sum_of_depression
     else:
         print('Something went wrong')
 
 
-# Sum of values out of 7 questions - value range: 0-3
-def Anxiety(anxietyValueIR):
-    sumOfAnxiety = sum(NumericalAnxietyArray.calculateAnxiety(NumericalAnxietyArray, anxietyValueIR))
-    #  #print('Degree and Value of Anxiety is ',sumOfAnxiety)
+# Sum of values out of 7 questions - value range for each question: 0-3
+def anxiety(anxiety_value):
+    sum_of_anxiety = sum(NumericalAnxietyArray.calculateAnxiety(NumericalAnxietyArray, anxiety_value))
+    #  #print('Degree and Value of Anxiety is ',sum_of_anxiety)
     print("Anxiety Value: ")
-    print(sumOfAnxiety)
-    if sumOfAnxiety <= 4:
+    print(sum_of_anxiety)
+    if sum_of_anxiety <= 4:
         # print('minimal anxiety symptoms')
-        return sumOfAnxiety
-    if (sumOfAnxiety >= 5) and (sumOfAnxiety <= 9):
+        return sum_of_anxiety
+    if 5 <= sum_of_anxiety < 10:
+        # equivalent to: if (sum_of_anxiety >= 5) and (sum_of_anxiety <= 9):
         # print('mildly anxiety symptoms')
-        return sumOfAnxiety
-    if (sumOfAnxiety >= 10) and (sumOfAnxiety <= 14):
+        return sum_of_anxiety
+    if 10 <= sum_of_anxiety < 15:
+        # equivalent to: if (sum_of_anxiety >= 10) and (sum_of_anxiety <= 14):
         # print('moderate anxiety symptoms')
-        return sumOfAnxiety
-    if (sumOfAnxiety >= 15) and (sumOfAnxiety <= 21):
+        return sum_of_anxiety
+    if 15 <= sum_of_anxiety < 22:
+        # equivalent to: if (sum_of_anxiety >= 15) and (sum_of_anxiety <= 21):
         # print('severe anxiety symptoms')
-        return sumOfAnxiety
+        return sum_of_anxiety
     else:
         print('Something went wrong')
 
 
-# Sum of values out of 10 questions - value range: 0-2
-def Stress(stressValueIR):
-    sumOfStress = sum(NumericalStressArray.calculateStress(NumericalStressArray, stressValueIR))
+# Sum of values out of 10 questions - value range for each question: 0-2
+def stress(stress_value):
+    sum_of_stress = sum(NumericalStressArray.calculateStress(NumericalStressArray, stress_value))
     # print('Degree and Value of Stress is ', sumOfStress)
     print("Stress Value: ")
-    print(sumOfStress)
-    if sumOfStress <= 4:
+    print(sum_of_stress)
+    if sum_of_stress <= 4:
         # print('minimally distinct psychosocial stress factors')
-        return sumOfStress
-    if (sumOfStress >= 5) and (sumOfStress <= 9):
+        return sum_of_stress
+    if 5 <= sum_of_stress < 10:
+        # equivalent to: if (sumOfStress >= 5) and (sumOfStress <= 9):
         # print('mildly distinct psychosocial stress factors')
-        return sumOfStress
-    if (sumOfStress >= 10) and (sumOfStress <= 14):
+        return sum_of_stress
+    if 10 <= sum_of_stress < 15:
+        # equivalent to: if (sumOfStress >= 10) and (sumOfStress <= 14):
         # print('moderate distinct psychosocial stress factors')
-        return sumOfStress
-    if (sumOfStress >= 15) and (sumOfStress <= 20):
+        return sum_of_stress
+    if 15 <= sum_of_stress < 21:
+        # equivalent to: if (sumOfStress >= 15) and (sumOfStress <= 20):
         # print('severe distinct psychosocial stress factors')
-        return sumOfStress
+        return sum_of_stress
     else:
         print('Something went wrong')

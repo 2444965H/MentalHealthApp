@@ -10,8 +10,7 @@ import KnowledgeEngine
 import KnowledgeEngineTwo
 import database
 
-AnswerArrayCP = ParserGUI.questionsForGUI_PHQ()
-# THe complete(CP) user answers are transferred from GUI to answer array
+AnswerArrayCP = ParserGUI.questions_for_gui_phq()  # The complete user answers are transferred from GUI to answer array
 
 
 # If you want to print out the information of the Contextual Questions including its answers, uncomment the next 3 lines
@@ -42,13 +41,10 @@ class StressIR:
     # print("Value of Stress Array: ") #Uncomment this & next line to check, if output is correct
     # print(StressArray)
 
-    # AnswerArray = []
-
 
 print("Selected answers:")
 for x in range(26, 43):
     print("- " + AnswerArrayCP[x])
-# declareAnswerArray[x+1]
 
 # Calculate Mental-Profile - Depression, Anxiety and Stress (DAS) as well as the maxIndValueOfDAS are instantiated here
 individualDepressionLevel = MentalProfile.Profile.calculateDepressionLevel(MentalProfile.Profile,
@@ -111,11 +107,12 @@ for x in range(26, 44):
     InputArray.append(AnswerArrayCP[x])
 InputArray.append(maxIndValueOfDAS)
 # If this is the first execution, do not compare "Old" values with "new" ones
-if database.checkExistence(Username) is None:
+if database.check_existence(Username) is None:
     print("No previous data found")
+# Else, compare the values and run the Knowledge Engine Two after Knowledge Engine One, too
 else:
     dbOldFactsArray = []
-    dbOldFactsArray = database.readFromDB(Username)  # is this really an array
+    dbOldFactsArray = database.read_from_db(Username)  # is this really an array
 
     # Start Knowledge-Engine
     engineTwo = KnowledgeEngineTwo.ComparingOldInputWithNew()
@@ -181,5 +178,5 @@ else:
     elif individualStressLevel < dbOldFactsArray[3]:
         engineTwo.declare(KnowledgeEngineTwo.DASLevelFact(lowerStress='Yes'))
 
-    engineTwo.run()  # Executes & runs it
-database.insertInDB(InputArray)
+    engineTwo.run()  # Executes & runs Knowledge Engine Two, which is responsible for comparing current and old input
+database.insert_in_db(InputArray)
