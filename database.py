@@ -60,7 +60,6 @@ def read_from_db(username):
     db_old_entry.append(db_old_query['futureStrategy'])
     db_old_entry.append(db_old_query['sensibleResolvePossible'])
     db_old_entry.append(db_old_query['maxIndValueOfDAS'])
-
     return db_old_entry
 
 # ID

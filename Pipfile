@@ -11,6 +11,7 @@ openpyxl = "*"
 gooey = "*"
 observable = "*"
 tinydb = "*"
+pbbt = "*"
 
 [requires]
 python_version = "3.8"
