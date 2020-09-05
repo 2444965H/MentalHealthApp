@@ -7,7 +7,9 @@ from gooey import GooeyParser
        navigation='Tabbed',
        fullscreen=True)
 def questions_for_gui_phq():
-    parser_gui = GooeyParser(description="Please go through all 7 tabs and answer the questions")
+    parser_gui = GooeyParser(description="Please go through all 7 tabs and answer the questions. \n"
+                                         "Over the last 2-4 weeks, how often have you been bothered by any of the "
+                                         "following problems?")
     answer_array_gui = []
 
     # PHQ9 Questions for Depression - Part of PHQ-D
