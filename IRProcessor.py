@@ -58,30 +58,3 @@ class NumericalStressArray:
         #print("Stress Array Values: ")
         #print(StressArray)
         return StressArray
-
-
-# Question Array is used in Parser.py, when we want to see the corresponding answers to the questions below
-QuestionArray = ["Little interest or pleasure in doing things?",
-                 'Feeling down, depressed, or hopeless?',
-                 'Trouble falling or staying asleep, or sleeping too much',
-                 'Feeling tired or having little energy', 'Poor appetite or overeating',
-                 'Feeling bad about yourself - or that you are a failure or have let yourself or your family down',
-                 'Trouble concentrating on things, such as reading the newspaper or watching television',
-                 'Moving/Speaking so slowly OR being restless that others have noticed?',
-                 'Thoughts that you would be better off dead or of hurting yourself in some way',
-                 'Feeling nervous, anxious or on edge?',
-                 'Not being able to stop or control worrying?',
-                 'Worrying too much about different things?',
-                 'Trouble relaxing?',
-                 'Being so restless that it is hard to sit still?',
-                 'Becoming easily annoyed or irritable?',
-                 'Feeling afraid as if something awful might happen?',
-                 'Worry about your health', 'Your weight or your appearance',
-                 'Little or no sexual desire or pleasure during intercourse',
-                 'Difficulties with the spouse, significant other, girlfriend / boyfriend',
-                 'Burden of caring for children, parents, or other family members',
-                 'Stress at work or at school',
-                 'Financial problems or concerns',
-                 'Not having someone to talk to about problems',
-                 'Something bad that happened recently',
-                 'Thoughts about terrible events from earlier or dreams about it']

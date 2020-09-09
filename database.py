@@ -23,8 +23,10 @@ def insert_in_db(input_array):
 
     # print(len(db))
     # dbOldArray = db.get(DBQuery.ID == db_array[0])
-    print("New Entry has been entered, old entry has been overwritten")
-    print(db.get(DBQuery.ID == db_array[0]))
+    print("")
+    print("Database: ")
+    print("New user input has been entered in the database, old entry has been overwritten.")
+    # print(db.get(DBQuery.ID == db_array[0]))
     # return dbOldArray
 
 

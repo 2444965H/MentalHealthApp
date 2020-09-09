@@ -4,6 +4,7 @@
 - These DAS values are needed for the MentalProfile.py
 """
 from IRProcessor import NumericalDepressionArray, NumericalAnxietyArray, NumericalStressArray
+import IRProcessor
 
 
 # Sum of values out of 9 questions - value range for each question: 0-3

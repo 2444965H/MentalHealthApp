@@ -11,12 +11,12 @@ import KnowledgeEngineTwo
 import database
 
 AnswerArrayCP = ParserGUI.questions_for_gui_phq()  # The complete user answers are transferred from GUI to answer array
-
-
-# If you want to print out the information of the Contextual Questions including its answers, uncomment the next 3 lines
-# print("Selected answers:")
-# for x in range(0, 26):  # NumberOfAnswersReturnedByGUI #declareAnswerArry[x+1]
-#         print("- " + (IRProcessor.QuestionArray[x] + "  " + AnswerArrayCP[x]))
+QuestionArray = MentalProfile.return_pqh_question()
+# If you want to print out the information of the PHQ Questions including its answers, uncomment the next 4 lines
+print("")
+print("Selected PHQ answers:")
+for x in range(0, 26):  # NumberOfAnswersReturnedByGUI #declareAnswerArry[x+1]
+    print("- " + (QuestionArray[x] + "  :  " + AnswerArrayCP[x]))
 
 class DepressionIR:
     DepressionArray = []
@@ -42,7 +42,7 @@ class StressIR:
     # print(StressArray)
 
 
-print("\n Selected answers:")
+print("\n Selected contextual answers:")
 for x in range(26, 43):
     print("- " + AnswerArrayCP[x])
 
@@ -179,4 +179,5 @@ else:
         engineTwo.declare(KnowledgeEngineTwo.DASLevelFact(lowerStress='Yes'))
 
     engineTwo.run()  # Executes & runs Knowledge Engine Two, which is responsible for comparing current and old input
+
 database.insert_in_db(InputArray)
