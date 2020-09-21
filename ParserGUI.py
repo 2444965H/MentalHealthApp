@@ -35,7 +35,7 @@ def questions_for_gui_phq():
 
     trouble_sleeping = all_phq9_questions.add_argument(
         "troubleSleeping",  # equal to AnswerArrayPHQ[2]
-        metavar='Trouble falling or staying asleep, or sleeping too much',
+        metavar='Trouble falling or staying asleep, or sleeping too much?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -44,7 +44,7 @@ def questions_for_gui_phq():
 
     feeling_tired = all_phq9_questions.add_argument(
         "feelingTired",  # equal to AnswerArrayPHQ[3]
-        metavar='Feeling tired or having little energy',
+        metavar='Feeling tired or having little energy?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -53,7 +53,7 @@ def questions_for_gui_phq():
 
     poor_appetite = all_phq9_questions.add_argument(
         "poorAppetite",  # equal to AnswerArrayPHQ[4]
-        metavar='Poor appetite or overeating',
+        metavar='Poor appetite or overeating?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -62,7 +62,7 @@ def questions_for_gui_phq():
 
     feeling_bad_about_yourself = all_phq9_questions.add_argument(
         "feelingBadAboutYourself",  # equal to AnswerArrayPHQ[5]
-        metavar='Feeling bad about yourself - or that you are a failure or have let yourself or your family down',
+        metavar='Feeling bad about yourself - or that you are a failure or have let yourself or your family down?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -71,7 +71,7 @@ def questions_for_gui_phq():
 
     bad_concentration = all_phq9_questions.add_argument(
         "badConcentration",  # equal to AnswerArrayPHQ[6]
-        metavar='Trouble concentrating on things, such as reading the newspaper or watching television',
+        metavar='Trouble concentrating on things, such as reading the newspaper or watching television?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -91,7 +91,7 @@ def questions_for_gui_phq():
 
     hurting_oneself = all_phq9_questions.add_argument(
         "hurtingOneself",  # equal to AnswerArrayPHQ[8]
-        metavar='Thoughts that you would be better off dead or of hurting yourself in some way',
+        metavar='Thoughts that you would be better off dead or of hurting yourself in some way?',
         choices=["Not at all",
                  "Several days",
                  "More than half the days",
@@ -321,7 +321,7 @@ def questions_for_gui_phq():
 
     leisure_question_enough_time_for_oneself = all_leisure_questions.add_argument(
         "enoughTimeForOneself",
-        metavar='Did you spent enough leisure time on yourself?',
+        metavar='Did you spend enough leisure time on yourself?',
         choices=['Yes, I had enough leisure time for myself',
                  'No, I did not have enough leisure time for myself']
     )
@@ -387,7 +387,7 @@ def questions_for_gui_phq():
 
     social_question_future_strategy = all_social_questions.add_argument(
         "futureStrategy",
-        metavar='Do you have a strategy on how to deal with those kind of negative social exchanges in the future?',
+        metavar='Do you have a strategy on how to deal with those kinds of negative social exchanges in the future?',
         choices=['Yes, I have a negative social exchange strategy',
                  'No, I do not have a strategy for negative social exchanges']
     )

@@ -12,6 +12,7 @@ gooey = "*"
 observable = "*"
 tinydb = "*"
 pbbt = "*"
+pyinstaller = "*"
 
 [requires]
 python_version = "3.8"
